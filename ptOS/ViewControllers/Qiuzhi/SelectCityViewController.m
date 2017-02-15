@@ -63,12 +63,20 @@
     
     
     cell.textLabel.text = [self.cityArray objectAtIndex:indexPath.row];
+    if([cell.textLabel.text isEqualToString: self.indexCity]) {
+        cell.textLabel.textColor = [UIColor grayColor];
+    } else {
+        cell.textLabel.textColor = [UIColor blackColor];
+    }
     return cell;
    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     //需要一个协议方法将选中的城市回传给首页
+    NSDictionary *dic = [[NSDictionary alloc]initWithObjectsAndKeys:[self.cityArray objectAtIndex:indexPath.row] ,@"0" ,nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"city" object:self userInfo:dic];
+    
     
     [self.navigationController popViewControllerAnimated:YES];
     

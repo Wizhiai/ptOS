@@ -15,4 +15,7 @@
 //选择的当前城市，默认为定位的当前城市
 @property (assign,nonatomic) NSString *selectedCity;
 
+
+//@property (assign ,nonatomic) UIView *chooseView;
+
 @end

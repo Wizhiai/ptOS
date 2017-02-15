@@ -48,7 +48,9 @@
 
 #define GMap_APPKEY @"04c0b7d2c1edacac03e5527fd3cb4b86"
 
+//creat by kanglv
 #import "SelectCityViewController.h"
+#import "screenView.h"
 
 @interface QiuzhiViewController ()<UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate,QRCodeScanneDelegate,ScannerViewControllerDelegate,AMapLocationManagerDelegate>
 {
@@ -106,6 +108,8 @@
 
 @property (nonatomic, strong)UIImageView *nodataImgView;
 
+@property (nonatomic ,strong)screenView *chooseView;
+
 @end
 
 @implementation QiuzhiViewController
@@ -133,6 +137,14 @@
     
     self.isSearch = NO;
     self.needNav = NO;
+    //默认城市设为常州
+    
+    NSLog(@"%@",self.selectedCity);
+    if([self.selectedCity isEqual : [NSNull null]]){
+        self.selectedCity = @"常州";
+    }
+    
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self getCoor];
     });
@@ -145,6 +157,12 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    //添加监听
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addObserverForCondition:) name:@"sure" object:nil];
+    
+    //添加城市选择的监听
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addObserverForCity:) name:@"city" object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -160,6 +178,11 @@
     [self.companyListApi stop];
     [self.searchJobApi stop];
     [self.searchComApi stop];
+    
+    //移除时移出监听
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"sure" object:nil];
+    //移除城市选择的监听
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"city" object:nil];
 }
 
 #pragma mark - customFuncs
@@ -279,7 +302,7 @@
         {
             NSLog(@"reGeocode:%@", regeocode);
             [GlobalData sharedInstance].location = regeocode.formattedAddress;
-            //当前城市
+            //定位到当前城市
             self.selectedCity = regeocode.city;
         }
     }];
@@ -320,15 +343,27 @@
     [self CompanyListApiNet];
 }
 
+//点击左上角位置
 - (void)locationBtnPress{
-    //跳转到新页面，地区选择页面
     
+    //跳转到新页面，地区选择页面
     SelectCityViewController *selectCity = [[SelectCityViewController alloc]init];
     
     selectCity.indexCity = self.selectedCity;
-    [self.navigationController pushViewController:selectCity animated:YES];
     
-    NSLog(@"hhhh");
+    [self.navigationController pushViewController:selectCity animated:YES];
+}
+
+//选择新城市后的监听
+-(void)addObserverForCity:(NSNotification *)notification {
+    NSLog(@"ggg");
+    NSString * city = [notification.userInfo objectForKey:@"0"];
+    self.selectedCity = city;
+    self.jobsNavView.locationBtn.titleLabel.text = city;
+    
+    //调用网络接口请求工作列表
+    
+    
 }
 
 - (void)jobsBtnPress {
@@ -351,64 +386,59 @@
 
 
 
-//- (void)sort_all {
-//    self.sortView.allBtn.selected = YES;
-//    self.sortView.moneyBtn.selected = NO;
-//    self.sortView.timeBtn.selected = NO;
-//    self.sortView.distanceBtn.selected = NO;
-//    
-//    self.sortView.moneyImageView.image = [UIImage imageNamed:@"icon_paixu_no"];
-//    self.sortView.timeImageView.image = [UIImage imageNamed:@"icon_paixu_no"];
-//    self.sortView.distanceImageview.image = [UIImage imageNamed:@"icon_paixu_no"];
-//    
-//    _sort = @"0";
-//    
-//    if (self.isSearch) {
-//        _search_leftPage = 1;
-//        [self searchJobApiNet];
-//    }else {
-//        _leftPage = 1;
-//        [self jobsListApiNet];
-//    }
-//    
-//    _lastSort = @"0";
-//}
+
+#pragma creat a choose view
+
+- (void)addScreenView {
+
+    self.chooseView = [[screenView alloc] initWithFrame:CGRectMake(0, 111, SCREEN_WIDTH, SCREEN_HEIGHT - 111 - 49) withString:@"123"];
+    self.chooseView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:self.chooseView];
+}
+
+- (void)removeScreenView {
+    
+    [self.chooseView removeFromSuperview];
+    
+}
+
+//添加一个监听，监听筛选条件
+- (void)addObserverForCondition:(NSNotification *)notification {
+    
+    //需要做新的网络请求去获取工作信息
+    
+    NSLog(@"%@",[notification.userInfo objectForKey:@"0"]);
+}
 
 - (void)sort_money {
-    NSLog(@"llllll111111");
-//    self.sortView.allBtn.selected = NO;
-//    self.sortView.moneyBtn.selected = YES;
-//    self.sortView.timeBtn.selected = NO;
-//    self.sortView.distanceBtn.selected = NO;
-//    
-//    self.sortView.timeImageView.image = [UIImage imageNamed:@"icon_paixu_no"];
-//    self.sortView.distanceImageview.image = [UIImage imageNamed:@"icon_paixu_no"];
-//    
-//    _time = 0;
-//    _distance = 0;
-//    
-//    _money ++;
-//    if (_money % 2 == 0) {
-//        //down
-//        self.sortView.moneyImageView.image = [UIImage imageNamed:@"icon_paixu_down"];
-//        _sort = @"1";
-//        
-//    }else {
-//        //up
-//        self.sortView.moneyImageView.image = [UIImage imageNamed:@"icon_paixu_up"];
-//        _sort = @"2";
-//    }
-//    
-//    
-//    if (self.isSearch) {
-//        _search_leftPage = 1;
-//        [self searchJobApiNet];
-//    }else {
-//        _leftPage = 1;
-//        [self jobsListApiNet];
-//    }
-//    
-//    _lastSort = @"1";
+    
+    self.sortView.moneyBtn.selected = YES;
+    self.sortView.timeBtn.selected = NO;
+    self.sortView.distanceBtn.selected = NO;
+    
+    self.sortView.timeImageView.image = [UIImage imageNamed:@"icon_paixu_no"];
+    self.sortView.distanceImageview.image = [UIImage imageNamed:@"icon_paixu_no"];
+    
+    _time = 0;
+    _distance = 0;
+    
+    
+    //弹出一个选择页面,初始时点击数位0，点一次加一,以此控制筛选view弹出收起
+    
+    if(_money % 2 == 0){
+        
+         [self addScreenView];
+        self.sortView.moneyBtn.titleLabel.text = @"已选择";
+        
+        
+    } else {
+        
+         [self removeScreenView];
+       
+        
+    }
+    
+    _money++;
 }
 
 - (void)sort_time {
@@ -1036,10 +1066,12 @@
         _jobsNavView.companyBtn.selected = NO;
         
         //如果获取到定位，显示当前城市。默认显示常州
-        if(self.selectedCity) {
-            [_jobsNavView.locationBtn  setTitle:self.selectedCity forState:UIControlStateNormal];
+        NSLog(@"---%@",self.selectedCity);
+        if([self.selectedCity isEqualToString:@""] || [self.selectedCity isEqual:[NSNull null]]) {
+             [_jobsNavView.locationBtn  setTitle:@"常州" forState:UIControlStateNormal];
+            
         } else {
-            [_jobsNavView.locationBtn  setTitle:@"常州" forState:UIControlStateNormal];
+            [_jobsNavView.locationBtn  setTitle:self.selectedCity forState:UIControlStateNormal];
         }
         
         [_jobsNavView.locationBtn addTarget:self action:@selector(locationBtnPress) forControlEvents:UIControlEventTouchUpInside];
@@ -1082,8 +1114,6 @@
 - (QZ_SortView *)sortView {
     if (_sortView == nil) {
         _sortView = [[NSBundle mainBundle] loadNibNamed:@"QZ_SortView" owner:nil options:nil].lastObject;
-        _sortView.allBtn.selected = YES;
-        [_sortView.allBtn addTarget:self action:@selector(sort_all) forControlEvents:UIControlEventTouchUpInside];
         [_sortView.timeBtn addTarget:self action:@selector(sort_time) forControlEvents:UIControlEventTouchUpInside];
         [_sortView.moneyBtn addTarget:self action:@selector(sort_money) forControlEvents:UIControlEventTouchUpInside];
         [_sortView.distanceBtn addTarget:self action:@selector(sort_distance) forControlEvents:UIControlEventTouchUpInside];

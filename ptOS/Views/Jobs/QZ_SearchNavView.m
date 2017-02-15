@@ -11,6 +11,7 @@
 @implementation QZ_SearchNavView
 
 - (void)awakeFromNib {
+    
     ZRViewRadius(self.searchField, 5);
     self.searchField.tintColor = WhiteColor;
     

@@ -53,14 +53,13 @@
     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
     
     if (isValidStr([GlobalData sharedInstance].selfInfo.sessionId)) {
-        //如果已经登录,如果昵称为null则显示注册帐号
-        if([[GlobalData sharedInstance].selfInfo.nickName isEqual:[NSNull null]]) {
-            
+//如果已经登录,如果昵称为null则显示注册帐号
+        if([[GlobalData sharedInstance].selfInfo.nickName isEqualToString:@""]) {
             self.nickNameLabel.text = [GlobalData sharedInstance].selfInfo.userName;
         } else{
             self.nickNameLabel.text = [GlobalData sharedInstance].selfInfo.nickName;
         }
-//        NSLog(@"－－－%@",[GlobalData sharedInstance].selfInfo.nickName);
+
         NSData *data = [UserDefault objectForKey:HeaderKey];
         UIImage *image = [UIImage imageWithData:data];
         if (image) {
