@@ -94,10 +94,6 @@
     [self mainComApiNet];
     [self commentListApiNet];
     [self giveJobsListApiNet];
-//    _bigView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
-//    _bigView.backgroundColor = WhiteColor;
-//    [self.view addSubview:_bigView];
-////    [self.view bringSubviewToFront:_bigView];
 }
 
 

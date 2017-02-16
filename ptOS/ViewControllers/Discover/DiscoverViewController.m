@@ -238,6 +238,7 @@
 }
 
 - (void)companyBtnPress {
+    
     self.left_tbView.hidden = YES;
     self.right_tbView.hidden = NO;
     self.navView.groundBtn.selected = NO;

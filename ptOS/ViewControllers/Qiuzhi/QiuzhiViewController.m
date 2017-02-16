@@ -137,12 +137,7 @@
     
     self.isSearch = NO;
     self.needNav = NO;
-    //默认城市设为常州
-    
-    NSLog(@"%@",self.selectedCity);
-    if([self.selectedCity isEqual : [NSNull null]]){
-        self.selectedCity = @"常州";
-    }
+   
     
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -359,9 +354,15 @@
     NSLog(@"ggg");
     NSString * city = [notification.userInfo objectForKey:@"0"];
     self.selectedCity = city;
-    self.jobsNavView.locationBtn.titleLabel.text = city;
+    [self.jobsNavView.locationBtn setTitle:city forState:UIControlStateNormal];
+    
     
     //调用网络接口请求工作列表
+    [GlobalData sharedInstance].coordinate = city;
+    NSLog(@"当前城市:%@",[GlobalData sharedInstance].coordinate);
+    [self jobsListApiNet];
+    
+    
     
     
 }
@@ -370,18 +371,31 @@
     self.sortView.hidden = NO;
     self.job_tbView.hidden = NO;
     self.company_tbView.hidden = YES;
-    
+    if(self.jobsNavView.jobsBtn.selected) {
+        [self jobsListApiNet];
+    }
     self.jobsNavView.jobsBtn.selected = YES;
     self.jobsNavView.companyBtn.selected = NO;
+   
 }
 
 - (void)companyBtnPress {
+    if(_nodataImgView) {
+        [self removePlaceHolderView];
+    }
+    
     self.sortView.hidden = YES;
     self.job_tbView.hidden = YES;
     self.company_tbView.hidden = NO;
     
+    if(self.jobsNavView.companyBtn.selected) {
+        [self CompanyListApiNet];
+    }
+    
     self.jobsNavView.jobsBtn.selected = NO;
     self.jobsNavView.companyBtn.selected = YES;
+    
+    
 }
 
 
@@ -390,21 +404,28 @@
 #pragma creat a choose view
 
 - (void)addScreenView {
-
-    self.chooseView = [[screenView alloc] initWithFrame:CGRectMake(0, 111, SCREEN_WIDTH, SCREEN_HEIGHT - 111 - 49) withString:@"123"];
-    self.chooseView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:self.chooseView];
+    
+    if(self.chooseView) {
+        [self.view bringSubviewToFront:self.chooseView];
+    } else {
+        self.chooseView = [[screenView alloc] initWithFrame:CGRectMake(15, 111, SCREEN_WIDTH-30, SCREEN_HEIGHT - 111 - 49) withString:@"123"];
+        self.chooseView.backgroundColor = [UIColor whiteColor];
+        [self.view addSubview:self.chooseView];
+    }
+    
+        
 }
 
 - (void)removeScreenView {
-    
-    [self.chooseView removeFromSuperview];
+    [self.view sendSubviewToBack:self.chooseView];
     
 }
 
 //添加一个监听，监听筛选条件
 - (void)addObserverForCondition:(NSNotification *)notification {
     
+    [self removeScreenView];
+    _money++;
     //需要做新的网络请求去获取工作信息
     
     NSLog(@"%@",[notification.userInfo objectForKey:@"0"]);
@@ -428,14 +449,12 @@
     if(_money % 2 == 0){
         
          [self addScreenView];
-        self.sortView.moneyBtn.titleLabel.text = @"已选择";
         
+        [self.sortView.moneyBtn setTitle:@"已选择" forState:UIControlStateNormal];
         
     } else {
         
          [self removeScreenView];
-       
-        
     }
     
     _money++;
@@ -580,6 +599,8 @@
 }
 
 - (void)search_companyBtnPress {
+    
+    
     self.searchNavView.jobsBtn.selected = NO;
     self.searchNavView.companyBtn.selected = YES;
     
@@ -603,6 +624,8 @@
     }
 }
 #pragma mark - Netapi
+
+//获取工作列表
 - (void)jobsListApiNet {
     if (self.jobListApi && !self.jobListApi.requestOperation.isFinished) {
         [self.jobListApi stop];
@@ -615,7 +638,11 @@
     self.jobListApi.noNetWorkingDelegate = self;
     [self.jobListApi startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
         QZ_JobListApi *result = (QZ_JobListApi *)request;
+      
         if (result.isCorrectResult) {
+            
+            [self removePlaceHolderView];
+            
             if (_leftPage == 1) {
                 self.leftDataArray = [NSMutableArray arrayWithArray:[result getJobsList]];
             }else {
@@ -634,6 +661,7 @@
             }else {
                 self.leftDataArray = [NSMutableArray array];
                 [self.job_tbView reloadData];
+                [self addPlaceHolderView];
             }
         }
         [self.job_tbView.mj_header endRefreshing];
@@ -648,6 +676,7 @@
     }];
 }
 
+//获取公司列表
 - (void)CompanyListApiNet {
     if (self.companyListApi && !self.companyListApi.requestOperation.isFinished) {
         [self.companyListApi stop];
@@ -658,6 +687,8 @@
     [self.companyListApi startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
         QZ_CompanyListApi *result = (QZ_CompanyListApi *)request;
         if (result.isCorrectResult) {
+            [self removePlaceHolderView];
+            
             if (_rightPage == 1) {
                 self.rightDataArray = [NSMutableArray arrayWithArray:[result getCompanyList]];
             }else {
@@ -676,12 +707,14 @@
             }else {
                 self.rightDataArray = [NSMutableArray array];
                 [self.company_tbView reloadData];
+                [self addPlaceHolderView];
             }
         }
         [self showNoDataView];
         [self.company_tbView.mj_header endRefreshing];
         [self.company_tbView.mj_footer endRefreshing];
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
+         [self addPlaceHolderView];
         if (_rightPage > 1) {
             _rightPage --;
         }else {
@@ -690,6 +723,7 @@
         }
     }];
 }
+
 
 - (void)searchJobApiNet {
     if (self.searchJobApi && !self.searchJobApi.requestOperation.isFinished) {
@@ -1067,11 +1101,13 @@
         
         //如果获取到定位，显示当前城市。默认显示常州
         NSLog(@"---%@",self.selectedCity);
-        if([self.selectedCity isEqualToString:@""] || [self.selectedCity isEqual:[NSNull null]]) {
-             [_jobsNavView.locationBtn  setTitle:@"常州" forState:UIControlStateNormal];
+        
+        if(self.selectedCity) {
+             [_jobsNavView.locationBtn  setTitle:self.selectedCity forState:UIControlStateNormal];
             
         } else {
-            [_jobsNavView.locationBtn  setTitle:self.selectedCity forState:UIControlStateNormal];
+             [_jobsNavView.locationBtn  setTitle:@"常州" forState:UIControlStateNormal];
+            self.selectedCity = @"常州";
         }
         
         [_jobsNavView.locationBtn addTarget:self action:@selector(locationBtnPress) forControlEvents:UIControlEventTouchUpInside];
@@ -1205,6 +1241,22 @@
     return _company_tbView;
 }
 
+//没有数据时添加占位的view
+
+- (void)addPlaceHolderView {
+    _nodataImgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 250, FITWIDTH(200) * 2.2, FITWIDTH(200))];
+    _nodataImgView.centerX = self.view.centerX;
+    _nodataImgView.image = [UIImage imageNamed:@"kongbai"];
+    [self.view addSubview: _nodataImgView];
+}
+
+//有数据时清除占位图
+
+- (void)removePlaceHolderView {
+    
+    [_nodataImgView removeFromSuperview];
+}
+
 - (UIImageView *)nodataImgView {
     if (_nodataImgView == nil) {
         _nodataImgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 250, FITWIDTH(200) * 2.2, FITWIDTH(200))];
@@ -1221,64 +1273,5 @@
     self.sortView.frame = CGRectMake(0, 64, SCREEN_WIDTH, 37);
 }
 
-//- (UIView *)mid_titleView {
-//    if (_mid_titleView == nil) {
-//        _mid_titleView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 160, 35)];
-//        _mid_titleView.backgroundColor = [UIColor clearColor];
-//        _mid_titleView.userInteractionEnabled = YES;
-//    }
-//    return _mid_titleView;
-//}
-//
-//
-//- (UIButton *)title_leftBtn {
-//    if (_title_leftBtn == nil) {
-//        _title_leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-//        [_title_leftBtn setTitle:@"职位" forState:UIControlStateNormal];
-//        [_title_leftBtn setTitleColor:RGB(188, 208, 248) forState:UIControlStateNormal];
-//        [_title_leftBtn setTitleColor:WhiteColor forState:UIControlStateSelected];
-//        [_title_leftBtn addTarget:self action:@selector(refreshView) forControlEvents:UIControlEventTouchUpInside];
-//    }
-//    return _title_leftBtn;
-//}
-//
-//- (UIButton *)_title_rightBtn {
-//    if (_title_rightBtn == nil) {
-//        _title_rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-//        [_title_rightBtn setTitle:@"职位" forState:UIControlStateNormal];
-//        [_title_rightBtn setTitleColor:RGB(188, 208, 248) forState:UIControlStateNormal];
-//        [_title_rightBtn setTitleColor:WhiteColor forState:UIControlStateSelected];
-//        [_title_rightBtn addTarget:self action:@selector(refreshView) forControlEvents:UIControlEventTouchUpInside];
-//    }
-//    return _title_rightBtn;
-//}
-//
-//- (UIBarButtonItem *)cityBarItem {
-//    if (_cityBarItem == nil) {
-//        UIView *cityView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 60, 25)];
-//        _cityBarItem = [[UIBarButtonItem alloc]initWithCustomView:cityView];
-//    }
-//    return _cityBarItem;
-//}
-//
-//- (UIBarButtonItem *)searchBarItem {
-//    if (_searchBarItem == nil) {
-//        UIButton *searchBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-//        [searchBtn setImage:[UIImage imageNamed:@"icon_shousuo"] forState:UIControlStateNormal];
-//        [searchBtn addTarget:self action:@selector(searchAction) forControlEvents:UIControlEventTouchUpInside];
-//        _searchBarItem = [[UIBarButtonItem alloc]initWithCustomView:searchBtn];
-//    }
-//    return _searchBarItem;
-//}
-//
-//- (UIBarButtonItem *)QRCodeBarItem {
-//    if (_QRCodeBarItem == nil) {
-//        UIButton *QRCodeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-//        [QRCodeBtn setImage:[UIImage imageNamed:@"icon_saoyisao"] forState:UIControlStateNormal];
-//        [QRCodeBtn addTarget:self action:@selector(QRCodeAction) forControlEvents:UIControlEventTouchUpInside];
-//        _QRCodeBarItem = [[UIBarButtonItem alloc]initWithCustomView:QRCodeBtn];
-//    }
-//    return _QRCodeBarItem;
-//}
 
 @end
