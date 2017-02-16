@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5DA5A7CB1E5554D5000F915A /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA5A7CA1E5554D5000F915A /* UIView+Frame.m */; };
+		5DA5A7CE1E5554F7000F915A /* JLSliderMoveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA5A7CD1E5554F7000F915A /* JLSliderMoveView.m */; };
+		5DA5A7D11E555549000F915A /* JLSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA5A7D01E555549000F915A /* JLSliderView.m */; };
 		5DF836F51E500AFF0037F542 /* SelectCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF836F41E500AFF0037F542 /* SelectCityViewController.m */; };
 		5DFDD7401E51B68900B1F2E2 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DFDD73F1E51B68900B1F2E2 /* View.xib */; };
 		5DFDD7431E51B92B00B1F2E2 /* screenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFDD7421E51B92B00B1F2E2 /* screenView.m */; };
@@ -498,6 +501,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5DA5A7C91E5554D5000F915A /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		5DA5A7CA1E5554D5000F915A /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		5DA5A7CC1E5554F7000F915A /* JLSliderMoveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLSliderMoveView.h; sourceTree = "<group>"; };
+		5DA5A7CD1E5554F7000F915A /* JLSliderMoveView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLSliderMoveView.m; sourceTree = "<group>"; };
+		5DA5A7CF1E555549000F915A /* JLSliderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLSliderView.h; sourceTree = "<group>"; };
+		5DA5A7D01E555549000F915A /* JLSliderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLSliderView.m; sourceTree = "<group>"; };
 		5DF836F31E500AFF0037F542 /* SelectCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCityViewController.h; sourceTree = "<group>"; };
 		5DF836F41E500AFF0037F542 /* SelectCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCityViewController.m; sourceTree = "<group>"; };
 		5DFDD73F1E51B68900B1F2E2 /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
@@ -1333,6 +1342,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5DA5A7C81E555475000F915A /* ScreenView */ = {
+			isa = PBXGroup;
+			children = (
+				5DA5A7CF1E555549000F915A /* JLSliderView.h */,
+				5DA5A7D01E555549000F915A /* JLSliderView.m */,
+				5DA5A7CC1E5554F7000F915A /* JLSliderMoveView.h */,
+				5DA5A7CD1E5554F7000F915A /* JLSliderMoveView.m */,
+				5DFDD7411E51B92B00B1F2E2 /* screenView.h */,
+				5DFDD7421E51B92B00B1F2E2 /* screenView.m */,
+				5DFDD73F1E51B68900B1F2E2 /* View.xib */,
+			);
+			name = ScreenView;
+			sourceTree = "<group>";
+		};
 		F009332D1D939016006B00A9 /* SDWebImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -1951,9 +1974,7 @@
 		F00DE8AC1D758C52004D43D0 /* Qiuzhi */ = {
 			isa = PBXGroup;
 			children = (
-				5DFDD7411E51B92B00B1F2E2 /* screenView.h */,
-				5DFDD7421E51B92B00B1F2E2 /* screenView.m */,
-				5DFDD73F1E51B68900B1F2E2 /* View.xib */,
+				5DA5A7C81E555475000F915A /* ScreenView */,
 				F0F945D41D782C50001AE058 /* Company */,
 				F0F945D51D782C50001AE058 /* Jobs */,
 				F0616B881D76E7B70041599B /* FavoriteCompanyTableViewCell.h */,
@@ -2437,6 +2458,8 @@
 		F0770A281D80630300E8BF36 /* Categorys */ = {
 			isa = PBXGroup;
 			children = (
+				5DA5A7C91E5554D5000F915A /* UIView+Frame.h */,
+				5DA5A7CA1E5554D5000F915A /* UIView+Frame.m */,
 				F0695B071DACEC9F003CB097 /* UIView+FDCollapsibleConstraints.h */,
 				F0695B081DACEC9F003CB097 /* UIView+FDCollapsibleConstraints.m */,
 				F0DD36DA1D9CF402001D869C /* UITextView+JKSelect.h */,
@@ -3197,6 +3220,7 @@
 				F0E82A401D9BF16E0087FC4C /* MHSelectPickerView.m in Sources */,
 				F0E82A461D9BFDBA0087FC4C /* LTPickerView.m in Sources */,
 				F00DE8E91D759081004D43D0 /* AFHTTPSessionManager.m in Sources */,
+				5DA5A7CB1E5554D5000F915A /* UIView+Frame.m in Sources */,
 				F02B89B71DA7A54F0020ED25 /* split.c in Sources */,
 				F0C30EF61D73F25E007941A1 /* BaseModel.m in Sources */,
 				F00DE89D1D756033004D43D0 /* CYLPlusButton.m in Sources */,
@@ -3294,6 +3318,7 @@
 				F0B60ED51D9183D000F8F519 /* UIScrollView+MJExtension.m in Sources */,
 				F0E82A621D9C0DE90087FC4C /* AJGradientView.m in Sources */,
 				F02AFB271D9540B800D9AE4B /* BindWeiXin.m in Sources */,
+				5DA5A7CE1E5554F7000F915A /* JLSliderMoveView.m in Sources */,
 				F0DD36D51D9CE41B001D869C /* JuBaoViewController.m in Sources */,
 				F00DE8A01D756033004D43D0 /* UIViewController+CYLTabBarControllerExtention.m in Sources */,
 				F0C30ED41D73D242007941A1 /* BaseView.m in Sources */,
@@ -3390,6 +3415,7 @@
 				F07A501C1D82AAD6001BE234 /* DiscoverNavView.m in Sources */,
 				F00201211D8A5BE5006F0136 /* Discover_DetailViewController.m in Sources */,
 				F09F3BEC1D8ED6E600A5CA20 /* LaunchView.m in Sources */,
+				5DA5A7D11E555549000F915A /* JLSliderView.m in Sources */,
 				F00933511D939016006B00A9 /* SDImageCache.m in Sources */,
 				F0616B871D76E6760041599B /* WorkExperienceViewController.m in Sources */,
 				F0C8C0D31D9299680065D945 /* QZ_JobDetailApi.m in Sources */,

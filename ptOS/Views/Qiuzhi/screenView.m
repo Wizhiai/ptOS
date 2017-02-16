@@ -7,8 +7,11 @@
 //
 
 #import "screenView.h"
+#import "JLSliderView.h"
 
 @implementation screenView
+
+
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -21,6 +24,13 @@
     if (self) {
         [self setFrame:frame];
         self.conditionArr = [NSMutableArray arrayWithObjects:@"15", nil];
+        
+        
+        self.sliderView = [[JLSliderView alloc]initWithFrame:CGRectMake(0, 40, self.frame.size.width, 40) sliderType:JLSliderTypeCenter];
+        
+        [self addSubview:self.sliderView];
+        
+        
     }
     return self;
 }

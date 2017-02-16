@@ -1102,12 +1102,12 @@
         //如果获取到定位，显示当前城市。默认显示常州
         NSLog(@"---%@",self.selectedCity);
         
-        if(self.selectedCity) {
-             [_jobsNavView.locationBtn  setTitle:self.selectedCity forState:UIControlStateNormal];
+        if([GlobalData sharedInstance].coordinate) {
+             [_jobsNavView.locationBtn  setTitle:[GlobalData sharedInstance].coordinate forState:UIControlStateNormal];
             
         } else {
              [_jobsNavView.locationBtn  setTitle:@"常州" forState:UIControlStateNormal];
-            self.selectedCity = @"常州";
+             [GlobalData sharedInstance].coordinate= @"常州";
         }
         
         [_jobsNavView.locationBtn addTarget:self action:@selector(locationBtnPress) forControlEvents:UIControlEventTouchUpInside];
@@ -1244,7 +1244,7 @@
 //没有数据时添加占位的view
 
 - (void)addPlaceHolderView {
-    _nodataImgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 250, FITWIDTH(200) * 2.2, FITWIDTH(200))];
+    _nodataImgView = [[UIImageView alloc]initWithFrame:CGRectMake(30, 250, 300, FITWIDTH(200))];  //需要调整
     _nodataImgView.centerX = self.view.centerX;
     _nodataImgView.image = [UIImage imageNamed:@"kongbai"];
     [self.view addSubview: _nodataImgView];

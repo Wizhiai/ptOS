@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseView.h"
+
+#import "JLSliderView.h"
+
+
 @interface screenView : BaseView
 - (instancetype)initWithFrame:(CGRect)frame withString:(NSString *)string;
 
@@ -15,5 +19,11 @@
 @property (strong , nonatomic)NSMutableArray *conditionArr;
 
 @property (weak, nonatomic) IBOutlet UIButton *sureButton;
+
+
+
+@property (strong, nonatomic) IBOutlet JLSliderView *sliderView;
+
+
 
 @end

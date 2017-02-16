@@ -22,26 +22,26 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="工作年限" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iva-EZ-FTo">
-                    <rect key="frame" x="15" y="84" width="61.5" height="18"/>
+                    <rect key="frame" x="15" y="94" width="61.5" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="学历要求" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Msv-WR-vdg">
-                    <rect key="frame" x="15" y="162" width="69.5" height="21"/>
+                    <rect key="frame" x="15" y="172" width="69.5" height="21"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="工作性质" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eez-9e-FNS">
-                    <rect key="frame" x="15" y="288" width="70" height="21"/>
+                    <rect key="frame" x="15" y="298" width="70" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="748" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4pw-Ri-lVU">
-                    <rect key="frame" x="15" y="117" width="70" height="30"/>
+                    <rect key="frame" x="15" y="127" width="70" height="30"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="70" id="VZg-S3-vDD"/>
@@ -61,7 +61,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MTr-GR-ksN">
-                    <rect key="frame" x="100" y="117" width="70" height="30"/>
+                    <rect key="frame" x="100" y="127" width="70" height="30"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <state key="normal" title="一年以上">
@@ -77,7 +77,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="2" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QBn-CI-aoS">
-                    <rect key="frame" x="185" y="117" width="70" height="30"/>
+                    <rect key="frame" x="185" y="127" width="70" height="30"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -95,7 +95,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jd9-oD-kgg">
-                    <rect key="frame" x="15" y="198" width="70" height="30"/>
+                    <rect key="frame" x="15" y="208" width="70" height="30"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <state key="normal" title="不限">
@@ -112,7 +112,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GRL-hF-kOa">
-                    <rect key="frame" x="15" y="243" width="70" height="30"/>
+                    <rect key="frame" x="15" y="253" width="70" height="30"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <state key="normal" title="高中">
@@ -128,7 +128,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kkj-TV-Cf2">
-                    <rect key="frame" x="100" y="243" width="70" height="30"/>
+                    <rect key="frame" x="100" y="253" width="70" height="30"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <state key="normal" title="大专">
@@ -145,7 +145,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="idT-CX-iBW">
-                    <rect key="frame" x="100" y="198" width="70" height="30"/>
+                    <rect key="frame" x="100" y="208" width="70" height="30"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <state key="normal" title="小学">
@@ -162,7 +162,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2D-Kb-y1U">
-                    <rect key="frame" x="15" y="324" width="70" height="30"/>
+                    <rect key="frame" x="15" y="334" width="70" height="30"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <state key="normal" title="全职">
@@ -179,7 +179,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QW6-H0-4sg">
-                    <rect key="frame" x="100" y="324" width="70" height="30"/>
+                    <rect key="frame" x="100" y="334" width="70" height="30"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <state key="normal" title="兼职">
@@ -196,7 +196,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8xZ-6y-q9K">
-                    <rect key="frame" x="185" y="324" width="70" height="30"/>
+                    <rect key="frame" x="185" y="334" width="70" height="30"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <state key="normal" title="实习">
@@ -245,7 +245,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wL4-MT-AqL">
-                    <rect key="frame" x="185" y="198" width="70" height="30"/>
+                    <rect key="frame" x="185" y="208" width="70" height="30"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <state key="normal" title="初中">
@@ -262,7 +262,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GeY-jr-PDl">
-                    <rect key="frame" x="270" y="198" width="70" height="30"/>
+                    <rect key="frame" x="270" y="208" width="70" height="30"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="70" id="21H-3h-Brb"/>
@@ -283,13 +283,13 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="umC-SX-Ih9">
-                    <rect key="frame" x="185" y="243" width="77" height="30"/>
+                    <rect key="frame" x="185" y="253" width="77" height="30"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <state key="normal" title="本科及以上">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <state key="highlighted" title="不限" backgroundImage="btnBack.png"/>
+                    <state key="highlighted" backgroundImage="btnBack.png"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                             <integer key="value" value="5"/>
@@ -299,14 +299,19 @@
                         <action selector="btnClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="4le-ME-M05"/>
                     </connections>
                 </button>
-                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="qWF-NV-34X">
-                    <rect key="frame" x="13" y="39" width="349" height="31"/>
-                </slider>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kbl-1r-bS2" customClass="JLSliderView">
+                    <rect key="frame" x="0.0" y="39" width="375" height="40"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="yX0-Xh-vpf"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="GeY-jr-PDl" firstAttribute="centerY" secondItem="wL4-MT-AqL" secondAttribute="centerY" id="0bd-nU-f5p"/>
                 <constraint firstItem="8xZ-6y-q9K" firstAttribute="width" secondItem="QW6-H0-4sg" secondAttribute="width" id="13H-Bo-fUp"/>
+                <constraint firstItem="kbl-1r-bS2" firstAttribute="top" secondItem="o39-7d-y7e" secondAttribute="bottom" constant="15" id="2Ry-Vv-oFZ"/>
                 <constraint firstItem="MTr-GR-ksN" firstAttribute="leading" secondItem="4pw-Ri-lVU" secondAttribute="trailing" constant="15" id="2Xe-aD-qTc"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="GeY-jr-PDl" secondAttribute="trailing" id="32c-Uu-6P8"/>
                 <constraint firstItem="GeY-jr-PDl" firstAttribute="leading" secondItem="wL4-MT-AqL" secondAttribute="trailing" constant="15" id="32k-Gj-9HB"/>
@@ -316,15 +321,14 @@
                 <constraint firstItem="umC-SX-Ih9" firstAttribute="height" secondItem="Kkj-TV-Cf2" secondAttribute="height" id="BaU-zd-3tw"/>
                 <constraint firstItem="QBn-CI-aoS" firstAttribute="top" secondItem="MTr-GR-ksN" secondAttribute="top" id="BkM-qk-Oka"/>
                 <constraint firstItem="umC-SX-Ih9" firstAttribute="leading" secondItem="Kkj-TV-Cf2" secondAttribute="trailing" constant="15" id="CcS-vD-Ka4"/>
+                <constraint firstItem="umC-SX-Ih9" firstAttribute="top" secondItem="Kkj-TV-Cf2" secondAttribute="top" id="Cji-Jc-lPW"/>
                 <constraint firstItem="QW6-H0-4sg" firstAttribute="width" secondItem="B2D-Kb-y1U" secondAttribute="width" id="Dpk-JK-C1t"/>
                 <constraint firstAttribute="bottom" secondItem="KEg-UA-Lt5" secondAttribute="bottom" constant="30" id="G03-mC-1AF"/>
                 <constraint firstItem="MTr-GR-ksN" firstAttribute="width" secondItem="4pw-Ri-lVU" secondAttribute="width" id="GDo-UT-jIg"/>
                 <constraint firstItem="KEg-UA-Lt5" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="Gpc-Dz-pY9"/>
-                <constraint firstItem="iva-EZ-FTo" firstAttribute="top" secondItem="qWF-NV-34X" secondAttribute="bottom" constant="15" id="J1G-dh-XKI"/>
-                <constraint firstAttribute="trailing" secondItem="umC-SX-Ih9" secondAttribute="trailing" constant="113" id="Jhg-sv-p5F"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="umC-SX-Ih9" secondAttribute="trailing" id="Jhg-sv-p5F"/>
                 <constraint firstItem="B2D-Kb-y1U" firstAttribute="height" secondItem="GRL-hF-kOa" secondAttribute="height" id="KD3-s0-uRH"/>
                 <constraint firstItem="idT-CX-iBW" firstAttribute="leading" secondItem="jd9-oD-kgg" secondAttribute="trailing" constant="15" id="MJP-57-Vy6"/>
-                <constraint firstAttribute="trailing" secondItem="qWF-NV-34X" secondAttribute="trailing" constant="15" id="P4V-Ht-X6t"/>
                 <constraint firstItem="QBn-CI-aoS" firstAttribute="width" secondItem="MTr-GR-ksN" secondAttribute="width" id="P4e-ru-eCr"/>
                 <constraint firstItem="wL4-MT-AqL" firstAttribute="leading" secondItem="idT-CX-iBW" secondAttribute="trailing" constant="15" id="Pql-5q-zru"/>
                 <constraint firstItem="Kkj-TV-Cf2" firstAttribute="width" secondItem="jd9-oD-kgg" secondAttribute="width" id="QIU-y4-Cfa"/>
@@ -333,11 +337,11 @@
                 <constraint firstItem="8xZ-6y-q9K" firstAttribute="height" secondItem="QW6-H0-4sg" secondAttribute="height" id="SIy-BJ-PTq"/>
                 <constraint firstItem="MTr-GR-ksN" firstAttribute="height" secondItem="4pw-Ri-lVU" secondAttribute="height" id="Sn6-Hn-IQE"/>
                 <constraint firstItem="427-57-Xyx" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="Xnj-UI-2i4"/>
+                <constraint firstItem="kbl-1r-bS2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="YBJ-09-4dy"/>
                 <constraint firstItem="4pw-Ri-lVU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="Yrv-eW-hOS"/>
                 <constraint firstItem="QW6-H0-4sg" firstAttribute="height" secondItem="B2D-Kb-y1U" secondAttribute="height" id="aUg-ps-KlS"/>
                 <constraint firstItem="wL4-MT-AqL" firstAttribute="width" secondItem="idT-CX-iBW" secondAttribute="width" id="cLk-4H-Qts"/>
                 <constraint firstItem="idT-CX-iBW" firstAttribute="top" secondItem="jd9-oD-kgg" secondAttribute="top" id="cTe-Op-Uv9"/>
-                <constraint firstItem="qWF-NV-34X" firstAttribute="top" secondItem="o39-7d-y7e" secondAttribute="bottom" constant="15" id="cWi-ws-jnl"/>
                 <constraint firstItem="jd9-oD-kgg" firstAttribute="width" secondItem="4pw-Ri-lVU" secondAttribute="width" id="dZd-Fe-WBV"/>
                 <constraint firstItem="jd9-oD-kgg" firstAttribute="leading" secondItem="Msv-WR-vdg" secondAttribute="leading" id="eZX-wq-xPp"/>
                 <constraint firstItem="4pw-Ri-lVU" firstAttribute="top" secondItem="iva-EZ-FTo" secondAttribute="bottom" constant="15" id="ess-Be-xaA"/>
@@ -345,13 +349,13 @@
                 <constraint firstAttribute="trailing" secondItem="KEg-UA-Lt5" secondAttribute="trailing" constant="20" id="go7-QY-mDL"/>
                 <constraint firstItem="8xZ-6y-q9K" firstAttribute="leading" secondItem="QW6-H0-4sg" secondAttribute="trailing" constant="15" id="gpo-0c-unx"/>
                 <constraint firstItem="idT-CX-iBW" firstAttribute="height" secondItem="jd9-oD-kgg" secondAttribute="height" id="hZK-RT-8mN"/>
-                <constraint firstItem="umC-SX-Ih9" firstAttribute="top" secondItem="Kkj-TV-Cf2" secondAttribute="top" id="i4f-ek-ifn"/>
                 <constraint firstItem="GRL-hF-kOa" firstAttribute="top" secondItem="jd9-oD-kgg" secondAttribute="bottom" constant="15" id="iFB-16-4ju"/>
                 <constraint firstItem="eez-9e-FNS" firstAttribute="top" secondItem="GRL-hF-kOa" secondAttribute="bottom" constant="15" id="iQ2-ib-3Yn"/>
                 <constraint firstItem="QW6-H0-4sg" firstAttribute="top" secondItem="B2D-Kb-y1U" secondAttribute="top" id="ieL-4c-1yA"/>
                 <constraint firstItem="B2D-Kb-y1U" firstAttribute="top" secondItem="eez-9e-FNS" secondAttribute="bottom" constant="15" id="ii2-EL-dUo"/>
                 <constraint firstItem="Kkj-TV-Cf2" firstAttribute="height" secondItem="jd9-oD-kgg" secondAttribute="height" id="j2I-55-rdr"/>
                 <constraint firstItem="wL4-MT-AqL" firstAttribute="height" secondItem="idT-CX-iBW" secondAttribute="height" id="jDc-Ty-MZF"/>
+                <constraint firstItem="iva-EZ-FTo" firstAttribute="top" secondItem="kbl-1r-bS2" secondAttribute="bottom" constant="15" id="ja4-Iu-DJc"/>
                 <constraint firstItem="427-57-Xyx" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="6" id="jen-Fn-N6g"/>
                 <constraint firstItem="eez-9e-FNS" firstAttribute="leading" secondItem="GRL-hF-kOa" secondAttribute="leading" id="nIZ-dq-yo8"/>
                 <constraint firstItem="idT-CX-iBW" firstAttribute="width" secondItem="jd9-oD-kgg" secondAttribute="width" id="new-SE-1eS"/>
@@ -364,17 +368,18 @@
                 <constraint firstItem="wL4-MT-AqL" firstAttribute="top" secondItem="idT-CX-iBW" secondAttribute="top" id="pv4-Hg-SfY"/>
                 <constraint firstItem="QBn-CI-aoS" firstAttribute="height" secondItem="MTr-GR-ksN" secondAttribute="height" id="qXa-1W-Wlf"/>
                 <constraint firstItem="MTr-GR-ksN" firstAttribute="top" secondItem="4pw-Ri-lVU" secondAttribute="top" id="tlg-Ha-Dwo"/>
+                <constraint firstAttribute="trailing" secondItem="kbl-1r-bS2" secondAttribute="trailing" id="tpo-oj-qiI"/>
                 <constraint firstItem="jd9-oD-kgg" firstAttribute="top" secondItem="Msv-WR-vdg" secondAttribute="bottom" constant="15" id="uIK-Av-JGx"/>
                 <constraint firstItem="GRL-hF-kOa" firstAttribute="leading" secondItem="jd9-oD-kgg" secondAttribute="leading" id="uhX-v5-oYW"/>
-                <constraint firstItem="qWF-NV-34X" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="vFh-or-1Sn"/>
                 <constraint firstItem="o39-7d-y7e" firstAttribute="leading" secondItem="427-57-Xyx" secondAttribute="trailing" constant="5" id="wvH-ei-Z9X"/>
                 <constraint firstItem="B2D-Kb-y1U" firstAttribute="width" secondItem="GRL-hF-kOa" secondAttribute="width" id="yGJ-wr-c0g"/>
                 <constraint firstItem="jd9-oD-kgg" firstAttribute="height" secondItem="4pw-Ri-lVU" secondAttribute="height" id="zZq-3O-d9D"/>
             </constraints>
             <connections>
+                <outlet property="sliderView" destination="kbl-1r-bS2" id="B9F-fb-mew"/>
                 <outlet property="sureButton" destination="KEg-UA-Lt5" id="wvN-Yp-Jbd"/>
             </connections>
-            <point key="canvasLocation" x="118" y="88"/>
+            <point key="canvasLocation" x="-129" y="90"/>
         </view>
     </objects>
     <resources>
