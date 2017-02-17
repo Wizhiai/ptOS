@@ -25,7 +25,7 @@
         [self setFrame:frame];
         self.conditionArr = [NSMutableArray arrayWithObjects:@"15", nil];
         
-        
+        self.salary.text = @"(不限)";
         self.sliderView = [[JLSliderView alloc]initWithFrame:CGRectMake(0, 40, self.frame.size.width, 40) sliderType:JLSliderTypeCenter];
         
         [self addSubview:self.sliderView];
@@ -79,7 +79,7 @@
         //将条件加入数组
         
            [self.conditionArr removeObject:[NSString stringWithFormat:@"%ld",sender.tag]];
-         sender.backgroundColor = [UIColor blackColor];
+         sender.backgroundColor = [UIColor whiteColor];
         sender.selected = NO;
     } else {
         //将筛选条件移出

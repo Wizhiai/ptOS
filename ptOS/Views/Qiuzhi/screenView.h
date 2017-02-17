@@ -21,9 +21,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *sureButton;
 
 
-
 @property (strong, nonatomic) IBOutlet JLSliderView *sliderView;
 
 
+@property (weak, nonatomic) IBOutlet UILabel *salary;
 
 @end

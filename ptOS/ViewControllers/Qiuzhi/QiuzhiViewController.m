@@ -158,6 +158,9 @@
     
     //添加城市选择的监听
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addObserverForCity:) name:@"city" object:nil];
+    
+    //添加薪资范围监听
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addObserverForSalary:) name:@"salary" object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -178,6 +181,9 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"sure" object:nil];
     //移除城市选择的监听
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"city" object:nil];
+    
+    //移除薪资监听
+     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"salary" object:nil];
 }
 
 #pragma mark - customFuncs
@@ -380,20 +386,26 @@
 }
 
 - (void)companyBtnPress {
-    if(_nodataImgView) {
-        [self removePlaceHolderView];
+    if(!self.jobsNavView.companyBtn.selected){
+        
+        [self removeScreenView];
+        self.sortView.moneyBtn.selected = NO;
+        
+        if(_nodataImgView) {
+            [self removePlaceHolderView];
+        }
+        
+        self.sortView.hidden = YES;
+        self.job_tbView.hidden = YES;
+        self.company_tbView.hidden = NO;
+        
+        if(self.jobsNavView.companyBtn.selected) {
+            [self CompanyListApiNet];
+        }
+        
+        self.jobsNavView.jobsBtn.selected = NO;
+        self.jobsNavView.companyBtn.selected = YES;
     }
-    
-    self.sortView.hidden = YES;
-    self.job_tbView.hidden = YES;
-    self.company_tbView.hidden = NO;
-    
-    if(self.jobsNavView.companyBtn.selected) {
-        [self CompanyListApiNet];
-    }
-    
-    self.jobsNavView.jobsBtn.selected = NO;
-    self.jobsNavView.companyBtn.selected = YES;
     
     
 }
@@ -421,11 +433,19 @@
     
 }
 
+//添加一个监听，监听薪资范围
+- (void)addObserverForSalary:(NSNotification *)notification {
+    
+    self.chooseView.salary.text = [notification.userInfo objectForKey:@"0"];
+    
+    NSLog(@"%@",[notification.userInfo objectForKey:@"0"]);
+}
+
 //添加一个监听，监听筛选条件
 - (void)addObserverForCondition:(NSNotification *)notification {
     
     [self removeScreenView];
-    _money++;
+    self.sortView.moneyBtn.selected = NO;
     //需要做新的网络请求去获取工作信息
     
     NSLog(@"%@",[notification.userInfo objectForKey:@"0"]);
@@ -433,7 +453,6 @@
 
 - (void)sort_money {
     
-    self.sortView.moneyBtn.selected = YES;
     self.sortView.timeBtn.selected = NO;
     self.sortView.distanceBtn.selected = NO;
     
@@ -446,91 +465,98 @@
     
     //弹出一个选择页面,初始时点击数位0，点一次加一,以此控制筛选view弹出收起
     
-    if(_money % 2 == 0){
+    if(!self.sortView.moneyBtn.selected){
         
          [self addScreenView];
-        
+        self.sortView.moneyBtn.selected = YES;
         [self.sortView.moneyBtn setTitle:@"已选择" forState:UIControlStateNormal];
         
-    } else {
         
+    } else {
+        self.sortView.moneyBtn.selected = NO;
          [self removeScreenView];
     }
-    
-    _money++;
 }
 
 - (void)sort_time {
-    self.sortView.allBtn.selected = NO;
-    self.sortView.moneyBtn.selected = NO;
-    self.sortView.timeBtn.selected = YES;
-    self.sortView.distanceBtn.selected = NO;
     
-    self.sortView.moneyImageView.image = [UIImage imageNamed:@"icon_paixu_no"];
-    self.sortView.distanceImageview.image = [UIImage imageNamed:@"icon_paixu_no"];
-    
-    _money = 0;
-    _distance = 0;
-    
-    _time ++;
-    if (_time % 2 ==0) {
-        //down
-        self.sortView.timeImageView.image = [UIImage imageNamed:@"icon_paixu_down"];
-        _sort = @"4";
-    }else {
-        //up
-        self.sortView.timeImageView.image = [UIImage imageNamed:@"icon_paixu_up"];
-        _sort = @"3";
+    if( !self.sortView.timeBtn.selected){
+        
+        [self removeScreenView];
+        self.sortView.moneyBtn.selected = NO;
+        
+        self.sortView.timeBtn.selected = YES;
+        self.sortView.distanceBtn.selected = NO;
+        
+        self.sortView.moneyImageView.image = [UIImage imageNamed:@"icon_paixu_no"];
+        self.sortView.distanceImageview.image = [UIImage imageNamed:@"icon_paixu_no"];
+        
+        
+        _distance = 0;
+        
+        _time ++;
+        if (_time % 2 ==0) {
+            //down
+            self.sortView.timeImageView.image = [UIImage imageNamed:@"icon_paixu_down"];
+            _sort = @"4";
+        }else {
+            //up
+            self.sortView.timeImageView.image = [UIImage imageNamed:@"icon_paixu_up"];
+            _sort = @"3";
+        }
+        
+        if (self.isSearch) {
+            _search_leftPage = 1;
+            [self searchJobApiNet];
+        }else {
+            _leftPage = 1;
+            [self jobsListApiNet];
+        }
+        
+        _lastSort = @"2";
+
     }
-    
-    if (self.isSearch) {
-        _search_leftPage = 1;
-        [self searchJobApiNet];
-    }else {
-        _leftPage = 1;
-        [self jobsListApiNet];
-    }
-    
-    _lastSort = @"2";
 }
 
 - (void)sort_distance {
-    if (!isValidStr([GlobalData sharedInstance].coordinate)) {
-        [XHToast showCenterWithText:@"未获取到当前位置"];
-        return;
+    
+    if( !self.sortView.distanceBtn.selected){
+        if (!isValidStr([GlobalData sharedInstance].coordinate)) {
+            [XHToast showCenterWithText:@"未获取到当前位置"];
+            return;
+        }
+        
+        [self removeScreenView];
+        self.sortView.moneyBtn.selected = NO;
+        self.sortView.timeBtn.selected = NO;
+        self.sortView.distanceBtn.selected = YES;
+        
+        self.sortView.moneyImageView.image = [UIImage imageNamed:@"icon_paixu_no"];
+        self.sortView.timeImageView.image = [UIImage imageNamed:@"icon_paixu_no"];
+        
+        _time = 0;
+        
+        _distance ++;
+        if (_distance % 2 == 0) {
+            //down
+            self.sortView.distanceImageview.image = [UIImage imageNamed:@"icon_paixu_down"];
+            _sort = @"6";
+        }else {
+            //up
+            self.sortView.distanceImageview.image = [UIImage imageNamed:@"icon_paixu_up"];
+            _sort = @"5";
+        }
+        
+        if (self.isSearch) {
+            _search_leftPage = 1;
+            [self searchJobApiNet];
+        }else {
+            _leftPage = 1;
+            [self jobsListApiNet];
+        }
+        
+        _lastSort = @"3";
     }
-    
-    self.sortView.allBtn.selected = NO;
-    self.sortView.moneyBtn.selected = NO;
-    self.sortView.timeBtn.selected = NO;
-    self.sortView.distanceBtn.selected = YES;
-    
-    self.sortView.moneyImageView.image = [UIImage imageNamed:@"icon_paixu_no"];
-    self.sortView.timeImageView.image = [UIImage imageNamed:@"icon_paixu_no"];
-    
-    _money = 0;
-    _time = 0;
-    
-    _distance ++;
-    if (_distance % 2 == 0) {
-        //down
-        self.sortView.distanceImageview.image = [UIImage imageNamed:@"icon_paixu_down"];
-        _sort = @"6";
-    }else {
-        //up
-        self.sortView.distanceImageview.image = [UIImage imageNamed:@"icon_paixu_up"];
-        _sort = @"5";
-    }
-    
-    if (self.isSearch) {
-        _search_leftPage = 1;
-        [self searchJobApiNet];
-    }else {
-        _leftPage = 1;
-        [self jobsListApiNet];
-    }
-    
-    _lastSort = @"3";
 }
 
 - (void)refreshView {

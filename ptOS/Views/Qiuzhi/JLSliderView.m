@@ -108,7 +108,7 @@
     [self addSubview:self.lineView];
     
     //手指移动的视图
-    self.moveView = [[JLSliderMoveView alloc]initWithFrame:CGRectMake(self.lineView.left-self.moveVHeight , self.lineView.bottom, self.lineView.width+self.moveVHeight, self.moveVHeight)];
+    self.moveView = [[JLSliderMoveView alloc]initWithFrame:CGRectMake(self.lineView.left-self.moveVHeight/2 , self.lineView.bottom, self.lineView.width+self.moveVHeight, self.moveVHeight)];
     self.moveView.delegate = self;
     [self addSubview:self.moveView];
 }
@@ -150,6 +150,29 @@
     self.currentMaxValue = right;
     self.rightTopLabel.text = [NSString stringWithFormat:@"%luk", (unsigned long)right];
     self.leftTopLabel.text  = [NSString stringWithFormat:@"%luk", (unsigned long)left];
+    
+    NSString *leftStr ;
+    NSString *rightStr;
+    NSString *string; //月薪范围label
+    if([self.rightTopLabel.text isEqualToString:@"10k"] ){
+        rightStr = @"不限";
+    } else {
+        rightStr = self.rightTopLabel.text;
+    }
+    if([self.leftTopLabel.text isEqualToString:@"1k"]){
+        leftStr = @"不限";
+    } else {
+        leftStr = self.leftTopLabel.text;
+    }
+    if([leftStr isEqualToString:@"不限"]&[rightStr isEqualToString:@"不限"]){
+        string = @"(不限)";
+    } else {
+        string = [NSString stringWithFormat:@"(%@-%@)",leftStr,rightStr];
+    }
+    NSLog(@"%@",string);
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc]initWithObjectsAndKeys:string,@"0", nil];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"salary" object:self userInfo:dic];
     
     if (self.lineView.width == 0) {
         self.lineView.width = 1;
