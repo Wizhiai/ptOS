@@ -36,49 +36,6 @@ static OSSManager *manager = nil;
 
 - (void)initOSSClientWithEndPoint:(NSString *)endPoint{
     
-//    id<OSSCredentialProvider> credential = [[OSSFederationCredentialProvider alloc] initWithFederationTokenGetter:^OSSFederationToken * {
-//        // 构造请求访问您的业务server
-//        NSString *urlString = [NSString stringWithFormat:@"%@%@",BASE_URL,@"getOSSToken?bucketName=bd-header"];
-//        NSURL * url = [NSURL URLWithString:urlString];
-//        NSURLRequest * request = [NSURLRequest requestWithURL:url];
-//        OSSTaskCompletionSource * tcs = [OSSTaskCompletionSource taskCompletionSource];
-//        NSURLSession * session = [NSURLSession sharedSession];
-//        
-//        // 发送请求
-//        NSURLSessionTask * sessionTask = [session dataTaskWithRequest:request
-//                                                    completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-//                                                        if (error) {
-//                                                            [tcs setError:error];
-//                                                            return;
-//                                                        }
-//                                                        [tcs setResult:data];
-//                                                    }];
-//        [sessionTask resume];
-//        
-//        // 需要阻塞等待请求返回
-//        [tcs.task waitUntilFinished];
-//        
-//        // 解析结果
-//        if (tcs.task.error) {
-//            NSLog(@"get token error: %@", tcs.task.error);
-//            return nil;
-//        } else {
-//            // 返回数据是json格式，需要解析得到token的各个字段
-//            NSDictionary * object = [NSJSONSerialization JSONObjectWithData:tcs.task.result
-//                                                                    options:kNilOptions
-//                                                                      error:nil];
-//            NSDictionary *dic = object[@"data"];
-//            OSSFederationToken * token = [OSSFederationToken new];
-//            token.tAccessKey = [dic objectForKey:@"AccessKeyId"];
-//            token.tSecretKey = [dic objectForKey:@"AccessKeySecret"];
-//            token.tToken = [dic objectForKey:@"SecurityToken"];
-//            token.expirationTimeInGMTFormat = [dic objectForKey:@"Expiration"];
-//            NSLog(@"get token: %@", token);
-//            return token;
-//        }
-//    }];
-//    client = [[OSSClient alloc] initWithEndpoint:endPoint credentialProvider:credential];
-    
     id<OSSCredentialProvider> credential = [[OSSPlainTextAKSKPairCredentialProvider alloc] initWithPlainTextAccessKey:@"LTAIa5LV30aGeTNB" secretKey:@"XDvjqc0UuP5iJSybqCLwgFaCjbzMb1"];
     
     client = [[OSSClient alloc] initWithEndpoint:endPoint credentialProvider:credential];

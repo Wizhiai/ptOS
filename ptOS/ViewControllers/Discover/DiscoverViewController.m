@@ -23,6 +23,10 @@
 #import "FX_ComListModel.h"
 #import "UIImageView+WebCache.h"
 
+#import "ChoosePublishWay.h"
+
+#import "PublishSpeechViewController.h"
+
 #import <ShareSDK/ShareSDK.h>
 #import <ShareSDKUI/ShareSDK+SSUI.h>
 
@@ -66,6 +70,9 @@
 
 @property (nonatomic, strong)UIImageView *nodataImgView;
 
+@property (nonatomic ,strong)ChoosePublishWay *choosePublishWayView;
+
+@property (nonatomic, strong)UITapGestureRecognizer *tapGestureReconizer;
 @end
 
 @implementation DiscoverViewController
@@ -163,10 +170,44 @@
     
 }
 - (void)publishBtnPress {
+    //弹出一个页面
+    if(self.choosePublishWayView){
+        
+        [self.view bringSubviewToFront:self.choosePublishWayView];
+        
+    } else {
+        self.choosePublishWayView = [[ChoosePublishWay alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) withString:@"publish"];
+        [self.choosePublishWayView.normalBtn addTarget:self action:@selector(publishNormalMessage) forControlEvents:UIControlEventTouchUpInside];
+        [self.choosePublishWayView.speechBtn addTarget:self action:@selector(publishSpeechMessage) forControlEvents:UIControlEventTouchUpInside];
+        
+        //添加单击手势
+        self.tapGestureReconizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap)];
+        [self.choosePublishWayView addGestureRecognizer:self.tapGestureReconizer];
+        
+        
+        [self.view addSubview:self.choosePublishWayView];
+    }
     
-    //弹出一个页面，显示列表
-//    PubLishQunaziViewController *ctrl = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"PubLishQunaziViewController"];
-//    [self.navigationController pushViewController:ctrl animated:YES];
+}
+
+//选择发布页的点击手势
+- (void)singleTap {
+    
+    [self.view sendSubviewToBack:self.choosePublishWayView];
+    
+}
+
+//发布普通消息
+- (void)publishNormalMessage {
+    PubLishQunaziViewController *ctrl = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"PubLishQunaziViewController"];
+    [self.navigationController pushViewController:ctrl animated:YES];
+
+}
+//发布语音消息
+- (void)publishSpeechMessage {
+
+    PublishSpeechViewController *publishSpeechViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"PublishSpeechViewController"];
+        [self.navigationController pushViewController:publishSpeechViewController animated:YES];
 }
 
 - (void)shareActionWithContent:(UIButton *)sender {

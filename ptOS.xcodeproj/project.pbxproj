@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D56EF751E5AD03C009F5C9E /* PublishSpeechViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D56EF741E5AD03C009F5C9E /* PublishSpeechViewController.m */; };
 		5DA5A7CB1E5554D5000F915A /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA5A7CA1E5554D5000F915A /* UIView+Frame.m */; };
 		5DA5A7CE1E5554F7000F915A /* JLSliderMoveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA5A7CD1E5554F7000F915A /* JLSliderMoveView.m */; };
 		5DA5A7D11E555549000F915A /* JLSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA5A7D01E555549000F915A /* JLSliderView.m */; };
+		5DB2E0B51E595D2300A56507 /* ChoosePublishWay.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB2E0B41E595D2300A56507 /* ChoosePublishWay.m */; };
+		5DB2E0B71E595DE100A56507 /* choosePublishWay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DB2E0B61E595DE100A56507 /* choosePublishWay.xib */; };
 		5DF836F51E500AFF0037F542 /* SelectCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF836F41E500AFF0037F542 /* SelectCityViewController.m */; };
 		5DFDD7401E51B68900B1F2E2 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DFDD73F1E51B68900B1F2E2 /* View.xib */; };
 		5DFDD7431E51B92B00B1F2E2 /* screenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFDD7421E51B92B00B1F2E2 /* screenView.m */; };
@@ -501,12 +504,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5D56EF731E5AD03C009F5C9E /* PublishSpeechViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishSpeechViewController.h; sourceTree = "<group>"; };
+		5D56EF741E5AD03C009F5C9E /* PublishSpeechViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishSpeechViewController.m; sourceTree = "<group>"; };
 		5DA5A7C91E5554D5000F915A /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		5DA5A7CA1E5554D5000F915A /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		5DA5A7CC1E5554F7000F915A /* JLSliderMoveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLSliderMoveView.h; sourceTree = "<group>"; };
 		5DA5A7CD1E5554F7000F915A /* JLSliderMoveView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLSliderMoveView.m; sourceTree = "<group>"; };
 		5DA5A7CF1E555549000F915A /* JLSliderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLSliderView.h; sourceTree = "<group>"; };
 		5DA5A7D01E555549000F915A /* JLSliderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLSliderView.m; sourceTree = "<group>"; };
+		5DB2E0B31E595D2300A56507 /* ChoosePublishWay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoosePublishWay.h; sourceTree = "<group>"; };
+		5DB2E0B41E595D2300A56507 /* ChoosePublishWay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoosePublishWay.m; sourceTree = "<group>"; };
+		5DB2E0B61E595DE100A56507 /* choosePublishWay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = choosePublishWay.xib; sourceTree = "<group>"; };
 		5DF836F31E500AFF0037F542 /* SelectCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCityViewController.h; sourceTree = "<group>"; };
 		5DF836F41E500AFF0037F542 /* SelectCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCityViewController.m; sourceTree = "<group>"; };
 		5DFDD73F1E51B68900B1F2E2 /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
@@ -1810,6 +1818,8 @@
 				F00DE8B71D758CA2004D43D0 /* DiscoverViewController.m */,
 				F002011F1D8A5BE5006F0136 /* Discover_DetailViewController.h */,
 				F00201201D8A5BE5006F0136 /* Discover_DetailViewController.m */,
+				5D56EF731E5AD03C009F5C9E /* PublishSpeechViewController.h */,
+				5D56EF741E5AD03C009F5C9E /* PublishSpeechViewController.m */,
 				F0616B7C1D76E1460041599B /* PubLishQunaziViewController.h */,
 				F0616B7D1D76E1460041599B /* PubLishQunaziViewController.m */,
 				F0616B821D76E4D50041599B /* MyFavoriteViewController.h */,
@@ -1936,6 +1946,9 @@
 				F0695B191DAD37AD003CB097 /* CommentView.h */,
 				F0695B1A1DAD37AD003CB097 /* CommentView.m */,
 				F0695B1C1DAD37BB003CB097 /* CommentView.xib */,
+				5DB2E0B31E595D2300A56507 /* ChoosePublishWay.h */,
+				5DB2E0B41E595D2300A56507 /* ChoosePublishWay.m */,
+				5DB2E0B61E595DE100A56507 /* choosePublishWay.xib */,
 			);
 			path = Discover;
 			sourceTree = "<group>";
@@ -3141,6 +3154,7 @@
 				F07315291D7C03070057213C /* icon_shoujihao.png in Resources */,
 				F07315731D7C5F4A0057213C /* icon_yirenzheng.png in Resources */,
 				F0D4FFD41D7E6E8300BA07D1 /* QZ_JobsNavView.xib in Resources */,
+				5DB2E0B71E595DE100A56507 /* choosePublishWay.xib in Resources */,
 				F07315521D7C54FE0057213C /* icon_wode@2x.png in Resources */,
 				F0E82A271D9BAD020087FC4C /* icon_qq_press.png in Resources */,
 				F0C33D341D86D5110014E8CB /* Discover_companyTableViewCell.xib in Resources */,
@@ -3226,6 +3240,7 @@
 				F00DE89D1D756033004D43D0 /* CYLPlusButton.m in Sources */,
 				F00D4D731D7099450031A6C1 /* UIImage+UIImageScale.m in Sources */,
 				F0F945C01D77FDF0001AE058 /* PT_JobMessageViewController.m in Sources */,
+				5DB2E0B51E595D2300A56507 /* ChoosePublishWay.m in Sources */,
 				F00933931D93E1F8006B00A9 /* FX_GiveGreatApi.m in Sources */,
 				F0D68B1E1D96393000FCACAE /* MyCommentViewController.m in Sources */,
 				F02AFB091D951D1900D9AE4B /* MY_ResumeDetailApi.m in Sources */,
@@ -3241,6 +3256,7 @@
 				F0B60ED01D9183D000F8F519 /* MJRefreshNormalHeader.m in Sources */,
 				F00DE8ED1D759081004D43D0 /* AFURLRequestSerialization.m in Sources */,
 				F075DA251DA8D09D00B547D2 /* ChangePhone2ViewController.m in Sources */,
+				5D56EF751E5AD03C009F5C9E /* PublishSpeechViewController.m in Sources */,
 				F02AFAEB1D950F8800D9AE4B /* PT_MsgNumApi.m in Sources */,
 				F02B89B61DA7A54F0020ED25 /* rscode.c in Sources */,
 				F0C30EF31D73D43C007941A1 /* RegisterViewController.m in Sources */,
