@@ -589,13 +589,15 @@
         
         if (model.imgUrl.length < 6) {
             static NSString *left_Identifier = @"GroundNoImageTableViewCell";
+            
+            //如果是语音消息，显示另一种cell
             GroundNoImageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:left_Identifier];
             if (cell == nil) {
                 cell = [[NSBundle mainBundle] loadNibNamed:@"GroundNoImageTableViewCell" owner:nil options:nil].lastObject;
             }
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            
             cell.contentLabel.text = model.content;
+            
             [cell.smallImageView sd_setImageWithURL:[NSURL URLWithString:model.headerUrl] placeholderImage:[UIImage imageNamed:@"morentouxiang"]];
             ZRViewRadius(cell.smallImageView, 12);
             cell.nickNameLabel.text = model.nickName;

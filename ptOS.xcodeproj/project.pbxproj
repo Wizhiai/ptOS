@@ -7,7 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D3E70751E5C3881004CAD59 /* icon_guanzhu.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3E70741E5C3881004CAD59 /* icon_guanzhu.png */; };
+		5D3E70771E5C38A0004CAD59 /* icon_xuan_press.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3E70761E5C38A0004CAD59 /* icon_xuan_press.png */; };
+		5D3E70791E5C38A6004CAD59 /* icon_xuan.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3E70781E5C38A6004CAD59 /* icon_xuan.png */; };
+		5D3E707B1E5C38B3004CAD59 /* icon_yuying.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3E707A1E5C38B3004CAD59 /* icon_yuying.png */; };
+		5D3E707D1E5C38B9004CAD59 /* icon_yuying_press.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3E707C1E5C38B9004CAD59 /* icon_yuying_press.png */; };
 		5D56EF751E5AD03C009F5C9E /* PublishSpeechViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D56EF741E5AD03C009F5C9E /* PublishSpeechViewController.m */; };
+		5D9B1F1C1E5C87CE0062A470 /* GroupSpeechTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9B1F1A1E5C87CE0062A470 /* GroupSpeechTableViewCell.m */; };
+		5D9B1F1D1E5C87CE0062A470 /* GroupSpeechTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D9B1F1B1E5C87CE0062A470 /* GroupSpeechTableViewCell.xib */; };
 		5DA5A7CB1E5554D5000F915A /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA5A7CA1E5554D5000F915A /* UIView+Frame.m */; };
 		5DA5A7CE1E5554F7000F915A /* JLSliderMoveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA5A7CD1E5554F7000F915A /* JLSliderMoveView.m */; };
 		5DA5A7D11E555549000F915A /* JLSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA5A7D01E555549000F915A /* JLSliderView.m */; };
@@ -504,8 +511,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5D3E70741E5C3881004CAD59 /* icon_guanzhu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_guanzhu.png; sourceTree = "<group>"; };
+		5D3E70761E5C38A0004CAD59 /* icon_xuan_press.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_xuan_press.png; sourceTree = "<group>"; };
+		5D3E70781E5C38A6004CAD59 /* icon_xuan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_xuan.png; sourceTree = "<group>"; };
+		5D3E707A1E5C38B3004CAD59 /* icon_yuying.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_yuying.png; sourceTree = "<group>"; };
+		5D3E707C1E5C38B9004CAD59 /* icon_yuying_press.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_yuying_press.png; sourceTree = "<group>"; };
 		5D56EF731E5AD03C009F5C9E /* PublishSpeechViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishSpeechViewController.h; sourceTree = "<group>"; };
 		5D56EF741E5AD03C009F5C9E /* PublishSpeechViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishSpeechViewController.m; sourceTree = "<group>"; };
+		5D9B1F191E5C87CE0062A470 /* GroupSpeechTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupSpeechTableViewCell.h; sourceTree = "<group>"; };
+		5D9B1F1A1E5C87CE0062A470 /* GroupSpeechTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupSpeechTableViewCell.m; sourceTree = "<group>"; };
+		5D9B1F1B1E5C87CE0062A470 /* GroupSpeechTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupSpeechTableViewCell.xib; sourceTree = "<group>"; };
 		5DA5A7C91E5554D5000F915A /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		5DA5A7CA1E5554D5000F915A /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		5DA5A7CC1E5554F7000F915A /* JLSliderMoveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLSliderMoveView.h; sourceTree = "<group>"; };
@@ -1927,6 +1942,9 @@
 				F07315761D7C630A0057213C /* GroundNoImageTableViewCell.h */,
 				F07315771D7C630A0057213C /* GroundNoImageTableViewCell.m */,
 				F07315781D7C630A0057213C /* GroundNoImageTableViewCell.xib */,
+				5D9B1F191E5C87CE0062A470 /* GroupSpeechTableViewCell.h */,
+				5D9B1F1A1E5C87CE0062A470 /* GroupSpeechTableViewCell.m */,
+				5D9B1F1B1E5C87CE0062A470 /* GroupSpeechTableViewCell.xib */,
 				F07A501A1D82AAD6001BE234 /* DiscoverNavView.h */,
 				F07A501B1D82AAD6001BE234 /* DiscoverNavView.m */,
 				F07A501D1D82AAE0001BE234 /* DiscoverNavView.xib */,
@@ -2000,6 +2018,9 @@
 		F00DE8B91D758E8B004D43D0 /* Discover */ = {
 			isa = PBXGroup;
 			children = (
+				5D3E707C1E5C38B9004CAD59 /* icon_yuying_press.png */,
+				5D3E707A1E5C38B3004CAD59 /* icon_yuying.png */,
+				5D3E70741E5C3881004CAD59 /* icon_guanzhu.png */,
 				F0EBC9D61D98F5D4007710BD /* shareImg.png */,
 				F002012A1D8A60F9006F0136 /* icon_dianzhan_blue.png */,
 				F00201281D8A5F92006F0136 /* icon_fenxiang_white.png */,
@@ -2044,6 +2065,8 @@
 		F00DE8BC1D758E8B004D43D0 /* Qiuzhi */ = {
 			isa = PBXGroup;
 			children = (
+				5D3E70781E5C38A6004CAD59 /* icon_xuan.png */,
+				5D3E70761E5C38A0004CAD59 /* icon_xuan_press.png */,
 				F0E2F5F21DBF45DD00796B68 /* tab_zhongjie.png */,
 				F06ED39D1DC0B420008CA4D7 /* icon-close@2x.png */,
 				F06ED39E1DC0B420008CA4D7 /* full@2x.png */,
@@ -3024,6 +3047,7 @@
 				F07315221D7C03070057213C /* button_denglu.png in Resources */,
 				F00201251D8A5E88006F0136 /* icon_jiubao_white.png in Resources */,
 				F09F3BD71D8ED05100A5CA20 /* jiazaizhong02.png in Resources */,
+				5D3E70791E5C38A6004CAD59 /* icon_xuan.png in Resources */,
 				F073155B1D7C597B0057213C /* icon_xueli.png in Resources */,
 				F09F3BE81D8ED07000A5CA20 /* dengluye4.png in Resources */,
 				F0EF45811DAE5EA2006E1EB0 /* icon_tongyong2.png in Resources */,
@@ -3041,6 +3065,7 @@
 				F09F3BE71D8ED07000A5CA20 /* dengluye3.png in Resources */,
 				F073156D1D7C5C800057213C /* icon_guanzhu_press.png in Resources */,
 				F0E2F5F31DBF45DD00796B68 /* tab_zhongjie.png in Resources */,
+				5D3E707D1E5C38B9004CAD59 /* icon_yuying_press.png in Resources */,
 				F0B2E0FE1D81583E00C7A478 /* QZ_CompanyDetailView1.xib in Resources */,
 				F00D4D3D1D7094690031A6C1 /* LaunchScreen.storyboard in Resources */,
 				F07A50201D82EF05001BE234 /* icon_fabu.png in Resources */,
@@ -3103,9 +3128,11 @@
 				F06ED3A91DC0B420008CA4D7 /* narrow@2x.png in Resources */,
 				F0A017EA1D7D2A14003BEABF /* my_qq.png in Resources */,
 				F0A017F71D7D5A85003BEABF /* mima_suo_white.png in Resources */,
+				5D9B1F1D1E5C87CE0062A470 /* GroupSpeechTableViewCell.xib in Resources */,
 				F075DA1B1DA8B41700B547D2 /* read_me.txt in Resources */,
 				F07315261D7C03070057213C /* icon_mima.png in Resources */,
 				F00498231DAFC838006D033A /* icon_aixin_press.png in Resources */,
+				5D3E70771E5C38A0004CAD59 /* icon_xuan_press.png in Resources */,
 				F073158A1D7C715A0057213C /* icon_zhiwei.png in Resources */,
 				F09F3BDA1D8ED05100A5CA20 /* jiazaizhong05.png in Resources */,
 				F06ED3A81DC0B420008CA4D7 /* full@3x.png in Resources */,
@@ -3147,12 +3174,14 @@
 				F09F3BE91D8ED07000A5CA20 /* dengluye5.png in Resources */,
 				F073153E1D7C54C80057213C /* icon_saoyisao.png in Resources */,
 				F0616B8C1D76E7B70041599B /* FavoriteCompanyTableViewCell.xib in Resources */,
+				5D3E707B1E5C38B3004CAD59 /* icon_yuying.png in Resources */,
 				F00201271D8A5ECE006F0136 /* icon_dianzan_white.png in Resources */,
 				5DFDD7401E51B68900B1F2E2 /* View.xib in Resources */,
 				F0D4FFD81D7E739C00BA07D1 /* icon_paixu_down.png in Resources */,
 				F075DA1C1DA8B41700B547D2 /* README.txt in Resources */,
 				F07315291D7C03070057213C /* icon_shoujihao.png in Resources */,
 				F07315731D7C5F4A0057213C /* icon_yirenzheng.png in Resources */,
+				5D3E70751E5C3881004CAD59 /* icon_guanzhu.png in Resources */,
 				F0D4FFD41D7E6E8300BA07D1 /* QZ_JobsNavView.xib in Resources */,
 				5DB2E0B71E595DE100A56507 /* choosePublishWay.xib in Resources */,
 				F07315521D7C54FE0057213C /* icon_wode@2x.png in Resources */,
@@ -3331,6 +3360,7 @@
 				F00DE9131D759088004D43D0 /* YTKNetworkPrivate.m in Sources */,
 				F00933531D939016006B00A9 /* SDWebImageDecoder.m in Sources */,
 				F043EB181DB4F8C700752081 /* MSTableViewCell.m in Sources */,
+				5D9B1F1C1E5C87CE0062A470 /* GroupSpeechTableViewCell.m in Sources */,
 				F0B60ED51D9183D000F8F519 /* UIScrollView+MJExtension.m in Sources */,
 				F0E82A621D9C0DE90087FC4C /* AJGradientView.m in Sources */,
 				F02AFB271D9540B800D9AE4B /* BindWeiXin.m in Sources */,

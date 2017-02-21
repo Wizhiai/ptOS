@@ -3193,21 +3193,13 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="尽可能使用普通话描述，时间控制在两分钟以内" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lR5-Wt-LmS">
-                                <rect key="frame" x="20" y="194" width="335" height="17"/>
+                                <rect key="frame" x="30" y="194" width="325" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pCU-Ny-xoT">
-                                <rect key="frame" x="20" y="231" width="40" height="40"/>
-                                <color key="backgroundColor" red="0.1874656412" green="0.4996401285" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="0Kl-vh-LcV"/>
-                                    <constraint firstAttribute="height" constant="40" id="gee-2C-xen"/>
-                                </constraints>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kdk-me-4ma" userLabel="LocationView">
-                                <rect key="frame" x="20" y="291" width="335" height="50"/>
+                                <rect key="frame" x="20" y="283" width="335" height="50"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_didian.png" translatesAutoresizingMaskIntoConstraints="NO" id="CIn-Ug-XRA">
                                         <rect key="frame" x="15" y="17" width="14" height="14"/>
@@ -3234,9 +3226,6 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9LL-fn-BjU">
                                         <rect key="frame" x="0.0" y="0.0" width="351" height="46"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <connections>
-                                            <action selector="addressBtn:" destination="qtA-Mj-v9i" eventType="touchUpInside" id="SWK-6d-IfP"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3245,7 +3234,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MtA-3K-v1O">
-                                <rect key="frame" x="20" y="361" width="335" height="50"/>
+                                <rect key="frame" x="20" y="353" width="335" height="50"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_fabuquanzi.png" translatesAutoresizingMaskIntoConstraints="NO" id="VL0-l3-b16">
                                         <rect key="frame" x="15" y="17" width="14" height="14"/>
@@ -3269,28 +3258,43 @@
                                     <constraint firstAttribute="height" constant="50" id="Jif-AB-pvo"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l2e-ri-W31">
+                                <rect key="frame" x="30" y="231" width="32" height="32"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" backgroundImage="icon_yuying.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Kdk-me-4ma" secondAttribute="trailing" constant="20" id="3OX-Ph-La7"/>
+                            <constraint firstItem="l2e-ri-W31" firstAttribute="leading" secondItem="h1l-4a-cvW" secondAttribute="leading" constant="30" id="6Zh-kC-LGG"/>
                             <constraint firstItem="Kdk-me-4ma" firstAttribute="leading" secondItem="h1l-4a-cvW" secondAttribute="leading" constant="20" id="7cA-xh-Da7"/>
                             <constraint firstItem="2Ks-xQ-SCB" firstAttribute="top" secondItem="h1l-4a-cvW" secondAttribute="top" id="Box-uA-9BQ"/>
                             <constraint firstItem="2Ks-xQ-SCB" firstAttribute="leading" secondItem="h1l-4a-cvW" secondAttribute="leading" id="EJm-rM-dYc"/>
-                            <constraint firstItem="pCU-Ny-xoT" firstAttribute="top" secondItem="lR5-Wt-LmS" secondAttribute="bottom" constant="20" id="Far-Zk-b4o"/>
-                            <constraint firstItem="lR5-Wt-LmS" firstAttribute="leading" secondItem="h1l-4a-cvW" secondAttribute="leading" constant="20" id="Gaf-lD-FDn"/>
+                            <constraint firstItem="lR5-Wt-LmS" firstAttribute="leading" secondItem="h1l-4a-cvW" secondAttribute="leading" constant="30" id="Gaf-lD-FDn"/>
                             <constraint firstItem="MtA-3K-v1O" firstAttribute="leading" secondItem="h1l-4a-cvW" secondAttribute="leading" constant="20" id="GtP-hp-ijh"/>
                             <constraint firstAttribute="trailing" secondItem="lR5-Wt-LmS" secondAttribute="trailing" constant="20" id="MAC-Ki-fnF"/>
                             <constraint firstAttribute="trailing" secondItem="D8v-r2-i96" secondAttribute="trailing" constant="20" id="McA-xv-wYN"/>
                             <constraint firstItem="D8v-r2-i96" firstAttribute="top" secondItem="2Ks-xQ-SCB" secondAttribute="bottom" constant="20" id="NxM-pf-Ntp"/>
                             <constraint firstItem="lR5-Wt-LmS" firstAttribute="top" secondItem="D8v-r2-i96" secondAttribute="bottom" constant="20" id="OC6-Sp-zuq"/>
                             <constraint firstItem="D8v-r2-i96" firstAttribute="leading" secondItem="h1l-4a-cvW" secondAttribute="leading" constant="20" id="Pcu-ry-7Ba"/>
+                            <constraint firstItem="Kdk-me-4ma" firstAttribute="top" secondItem="l2e-ri-W31" secondAttribute="bottom" constant="20" id="Uha-SK-DFP"/>
                             <constraint firstItem="MtA-3K-v1O" firstAttribute="top" secondItem="Kdk-me-4ma" secondAttribute="bottom" constant="20" id="ZKv-68-AQM"/>
-                            <constraint firstItem="pCU-Ny-xoT" firstAttribute="leading" secondItem="h1l-4a-cvW" secondAttribute="leading" constant="20" id="buI-k8-oxM"/>
+                            <constraint firstItem="l2e-ri-W31" firstAttribute="top" secondItem="lR5-Wt-LmS" secondAttribute="bottom" constant="20" id="bsI-sN-7t4"/>
                             <constraint firstAttribute="trailing" secondItem="MtA-3K-v1O" secondAttribute="trailing" constant="20" id="osO-o3-B0e"/>
                             <constraint firstAttribute="trailing" secondItem="2Ks-xQ-SCB" secondAttribute="trailing" id="tEM-4d-b4y"/>
-                            <constraint firstItem="Kdk-me-4ma" firstAttribute="top" secondItem="pCU-Ny-xoT" secondAttribute="bottom" constant="20" id="uA3-Sl-0Fu"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="locationBtn" destination="9LL-fn-BjU" id="Ldt-oq-60k"/>
+                        <outlet property="locationLabel" destination="787-IE-SjA" id="LNB-QO-zQg"/>
+                        <outlet property="playBtn" destination="l2e-ri-W31" id="rDG-vN-l3b"/>
+                        <outlet property="record" destination="D8v-r2-i96" id="KAC-i4-cvd"/>
+                        <outlet property="switchBtn" destination="hP0-nP-M8F" id="IPl-wk-PVb"/>
+                        <outlet property="topView" destination="2Ks-xQ-SCB" id="6tL-xU-jFa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TdL-vh-TVe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3311,12 +3315,13 @@
         <image name="icon_faxian1.png" width="32" height="32"/>
         <image name="icon_fenxiang_white.png" width="32" height="32"/>
         <image name="icon_guanbi.png" width="24" height="24"/>
-        <image name="icon_guanzhu.png" width="120" height="40"/>
+        <image name="icon_guanzhu.png" width="32" height="32"/>
         <image name="icon_jianli.png" width="32" height="32"/>
         <image name="icon_jiubao_white.png" width="32" height="32"/>
         <image name="icon_pt_qiuzhi.png" width="100" height="100"/>
         <image name="icon_qq.png" width="76" height="76"/>
         <image name="icon_shezi.png" width="32" height="32"/>
+        <image name="icon_yuying.png" width="32" height="32"/>
         <image name="icon_zhiwei.png" width="32" height="32"/>
         <image name="logo.png" width="160" height="160"/>
         <image name="my_qq.png" width="76" height="76"/>
