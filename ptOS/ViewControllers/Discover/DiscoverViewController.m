@@ -9,6 +9,7 @@
 #import "DiscoverViewController.h"
 #import "GroundTableViewCell.h"
 #import "GroundNoImageTableViewCell.h"
+#import "GroupSpeechTableViewCell.h"
 #import "DiscoverNavView.h"
 #import "PubLishQunaziViewController.h"
 #import "Discover_companyTableViewCell.h"
@@ -534,23 +535,25 @@
             }
             
         }
-        
+        CGFloat height = [ControlUtil heightWithContent:model.content withFont:[UIFont systemFontOfSize:15] withWidth:FITWIDTH(326)];
         if (model.imgUrl.length < 6) {
             //无图
-            CGFloat height = [ControlUtil heightWithContent:model.content withFont:[UIFont systemFontOfSize:15] withWidth:FITWIDTH(326)];
+          
             if (height > 60) {
                 return 181;
             }else {
                 return 181 - 60 + height;
             }
-        }else {
+        }else if([model.fileType isEqualToString:@"2"]){
             //有图
+             return 161 ;
+        } else {
             return 181;
         }
         
     }else if (tableView == self.right_tbView) {
         if (indexPath.row == 0) {
-            return 105;
+            return 200;
         }else {
             FX_ComListModel *model = [[FX_ComListModel alloc]init];
             model = self.rightDataArray[indexPath.row];
@@ -587,17 +590,155 @@
             
         }
         
-        if (model.imgUrl.length < 6) {
-            static NSString *left_Identifier = @"GroundNoImageTableViewCell";
+        if([model.fileType isEqualToString:@"1"]) {
+            //图片或者文字
+            if (model.imgUrl.length < 6) {
+                //纯文本
+                static NSString *left_Identifier = @"GroundNoImageTableViewCell";
+                GroundNoImageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:left_Identifier];
+                if (cell == nil) {
+                    cell = [[NSBundle mainBundle] loadNibNamed:@"GroundNoImageTableViewCell" owner:nil options:nil].lastObject;
+                }
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                cell.contentLabel.text = model.content;
+                
+                [cell.smallImageView sd_setImageWithURL:[NSURL URLWithString:model.headerUrl] placeholderImage:[UIImage imageNamed:@"morentouxiang"]];
+                ZRViewRadius(cell.smallImageView, 12);
+                cell.nickNameLabel.text = model.nickName;
+                cell.comNameLbel.text = model.companyName;
+                cell.timeLabel.text = model.time;
+                [cell.zanNumLabel setTitle:model.greatNum forState:UIControlStateNormal];
+                [cell.commentNumLabel setTitle:model.commentNum forState:UIControlStateNormal];
+                [cell.addressLabel setTitle:model.address forState:UIControlStateNormal];
+                
+                
+                [cell.shareBtn addTarget:self action:@selector(shareActionWithContent:) forControlEvents:UIControlEventTouchUpInside];
+                
+                if ([model.companyName isEqualToString:@""] || model.companyName == nil || [model.companyName isKindOfClass:[NSNull class]]) {
+                    cell.shuView.hidden = YES;
+                }else {
+                    cell.shuView.hidden = NO;
+                }
+                
+                CGFloat width1 = [ControlUtil widthWithContent:model.nickName withFont:[UIFont systemFontOfSize:14] withHeight:21];
+                cell.nickNameWidthLabel.constant = width1;
+                
+                CGFloat height = [ControlUtil heightWithContent:model.content withFont:[UIFont systemFontOfSize:15] withWidth:FITWIDTH(326)];
+                if (height >= 60) {
+                    height = 60;
+                }
+                cell.labelHeightCons.constant = height;
+                
+                if ([model.isLike isEqualToString:@"1"]) {
+                    cell.zanBtn.selected = YES;
+                }else {
+                    cell.zanBtn.selected = NO;
+                }
+                [cell.zanBtn addTarget:self action:@selector(dianzanActionNO:) forControlEvents:UIControlEventTouchUpInside];
+                return cell;
+            } else {
+                //带图的
+                static NSString *left_Identifier = @"GroundTableViewCell";
+                GroundTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:left_Identifier];
+                if (cell == nil) {
+                    cell = [[NSBundle mainBundle] loadNibNamed:@"GroundTableViewCell" owner:nil options:nil].lastObject;
+                }
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                cell.contentLabel.text = model.content;
+                [cell.headerImageView sd_setImageWithURL:[NSURL URLWithString:model.imgUrl] placeholderImage:[UIImage imageNamed:@"moren_pt"]];
+                [cell.smallImageView sd_setImageWithURL:[NSURL URLWithString:model.headerUrl] placeholderImage:[UIImage imageNamed:@"morentouxiang"]];
+                ZRViewRadius(cell.smallImageView, 12);
+                cell.nickNameLabel.text = model.nickName;
+                cell.comNameLbel.text = model.companyName;
+                cell.timeLabel.text = model.time;
+                [cell.zanNumLabel setTitle:model.greatNum forState:UIControlStateNormal];
+                [cell.commentNumLabel setTitle:model.commentNum forState:UIControlStateNormal];
+                [cell.addressLabel setTitle:model.address forState:UIControlStateNormal];
+                
+                
+                [cell.shareBtn addTarget:self action:@selector(shareActionWithContent:) forControlEvents:UIControlEventTouchUpInside];
+                
+                if ([model.companyName isEqualToString:@""] || model.companyName == nil || [model.companyName isKindOfClass:[NSNull class]]) {
+                    cell.shuView.hidden = YES;
+                }else {
+                    cell.shuView.hidden = NO;
+                }
+                
+                
+                
+                CGFloat height = [ControlUtil heightWithContent:model.content withFont:[UIFont systemFontOfSize:15] withWidth:FITWIDTH(326)];
+                if (height >= 60) {
+                    height = 60;
+                }
+                cell.labelHeightCons.constant = height;
+                
+                if ([model.isLike isEqualToString:@"1"]) {
+                    cell.zanBtn.selected = YES;
+                }else {
+                    cell.zanBtn.selected = NO;
+                }
+                [cell.zanBtn addTarget:self action:@selector(dianzanActionNO:) forControlEvents:UIControlEventTouchUpInside];
+                return cell;
+            }
             
-            //如果是语音消息，显示另一种cell
-            GroundNoImageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:left_Identifier];
+            
+
+        } else if ([model.fileType isEqualToString:@"2"]){
+            //语音
+          
+            static NSString *left_Identifier = @"GroupSpeechTableViewCell";
+            GroupSpeechTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:left_Identifier];
             if (cell == nil) {
-                cell = [[NSBundle mainBundle] loadNibNamed:@"GroundNoImageTableViewCell" owner:nil options:nil].lastObject;
+                cell = [[NSBundle mainBundle] loadNibNamed:@"GroupSpeechTableViewCell" owner:nil options:nil].lastObject;
+            }
+            
+            [cell.smallImageView sd_setImageWithURL:[NSURL URLWithString:model.headerUrl] placeholderImage:[UIImage imageNamed:@"morentouxiang"]];
+            ZRViewRadius(cell.smallImageView, 12);
+            cell.nickNameLabel.text = model.nickName;
+            cell.comNameLabel.text = model.companyName;
+            cell.timeLabel.text = model.time;
+            [cell.zanNumLabel setTitle:model.greatNum forState:UIControlStateNormal];
+            [cell.commentNumLabel setTitle:model.commentNum forState:UIControlStateNormal];
+            [cell.addressLabel setTitle:model.address forState:UIControlStateNormal];
+            
+            [cell.playBtn setImage:[UIImage imageNamed:@"icon_yuying"] forState:UIControlStateNormal];
+            
+            
+            [cell.shareBtn addTarget:self action:@selector(shareActionWithContent:) forControlEvents:UIControlEventTouchUpInside];
+            
+            if ([model.companyName isEqualToString:@""] || model.companyName == nil || [model.companyName isKindOfClass:[NSNull class]]) {
+                cell.shuView.hidden = YES;
+            }else {
+                cell.shuView.hidden = NO;
+            }
+
+            
+            CGFloat height = [ControlUtil heightWithContent:model.content withFont:[UIFont systemFontOfSize:15] withWidth:FITWIDTH(326)];
+            if (height >= 60) {
+                height = 60;
+            }
+
+            
+            if ([model.isLike isEqualToString:@"1"]) {
+                cell.zanBtn.selected = YES;
+            }else {
+                cell.zanBtn.selected = NO;
+            }
+            [cell.zanBtn addTarget:self action:@selector(dianzanActionNO:) forControlEvents:UIControlEventTouchUpInside];
+            return cell;
+            
+            
+        } else {
+            //视频，先用image的cell
+            
+            static NSString *left_Identifier = @"GroundTableViewCell";
+            GroundTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:left_Identifier];
+            if (cell == nil) {
+                cell = [[NSBundle mainBundle] loadNibNamed:@"GroundTableViewCell" owner:nil options:nil].lastObject;
             }
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             cell.contentLabel.text = model.content;
-            
+            [cell.headerImageView sd_setImageWithURL:[NSURL URLWithString:model.imgUrl] placeholderImage:[UIImage imageNamed:@"moren_pt"]];
             [cell.smallImageView sd_setImageWithURL:[NSURL URLWithString:model.headerUrl] placeholderImage:[UIImage imageNamed:@"morentouxiang"]];
             ZRViewRadius(cell.smallImageView, 12);
             cell.nickNameLabel.text = model.nickName;
@@ -616,8 +757,7 @@
                 cell.shuView.hidden = NO;
             }
             
-            CGFloat width1 = [ControlUtil widthWithContent:model.nickName withFont:[UIFont systemFontOfSize:14] withHeight:21];
-            cell.nickNameWidthLabel.constant = width1;
+
             
             CGFloat height = [ControlUtil heightWithContent:model.content withFont:[UIFont systemFontOfSize:15] withWidth:FITWIDTH(326)];
             if (height >= 60) {
@@ -632,51 +772,12 @@
             }
             [cell.zanBtn addTarget:self action:@selector(dianzanActionNO:) forControlEvents:UIControlEventTouchUpInside];
             return cell;
-        }else {
-            static NSString *left_Identifier = @"GroundTableViewCell";
-            GroundTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:left_Identifier];
-            if (cell == nil) {
-                cell = [[NSBundle mainBundle] loadNibNamed:@"GroundTableViewCell" owner:nil options:nil].lastObject;
-            }
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            
-            cell.contentLabel.text = model.content;
-            [cell.headerImageView sd_setImageWithURL:[NSURL URLWithString:model.imgUrl] placeholderImage:[UIImage imageNamed:@"moren_pt"]];
-            [cell.smallImageView sd_setImageWithURL:[NSURL URLWithString:model.headerUrl] placeholderImage:[UIImage imageNamed:@"morentouxiang"]];
-            ZRViewRadius(cell.smallImageView, 12);
-            cell.nickNameLabel.text = model.nickName;
-            cell.comNameLbel.text = model.companyName;
-            cell.timeLabel.text = model.time;
-            [cell.zanNumLabel setTitle:model.greatNum forState:UIControlStateNormal];
-            [cell.commentNumLabel setTitle:model.commentNum forState:UIControlStateNormal];
-            [cell.addressLabel setTitle:model.address forState:UIControlStateNormal];
-            
-            [cell.shareBtn addTarget:self action:@selector(shareActionWithContent:) forControlEvents:UIControlEventTouchUpInside];
-            CGFloat width1 = [ControlUtil widthWithContent:model.nickName withFont:[UIFont systemFontOfSize:14] withHeight:21];
-            
-            CGFloat height = [ControlUtil heightWithContent:model.content withFont:[UIFont systemFontOfSize:15] withWidth:FITWIDTH(267)];
-            if (height >= 60) {
-                height = 60;
-            }
-            cell.labelHeightCons.constant = height;
-            
-            if ([model.companyName isEqualToString:@""] || model.companyName == nil || [model.companyName isKindOfClass:[NSNull class]]) {
-                cell.shuView.hidden = YES;
-            }else {
-                cell.shuView.hidden = NO;
-            }
-            cell.nickNameWidthCons.constant = width1;
-            if ([model.isLike isEqualToString:@"1"]) {
-                cell.zanBtn.selected = YES;
-            }else {
-                cell.zanBtn.selected = NO;
-            }
-            [cell.zanBtn addTarget:self action:@selector(dianzanActionHas:) forControlEvents:UIControlEventTouchUpInside];
-            return cell;
+
         }
         
         
     }else if (tableView == self.right_tbView) {
+        //显示公司页数据
         if (indexPath.row == 0) {
             static NSString *left_Identifier = @"Discover_companyTableViewCell";
             Discover_companyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:left_Identifier];
@@ -688,56 +789,120 @@
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
         }else {
-//            static NSString *left_Identifier = @"GroundTableViewCell";
-//            GroundTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:left_Identifier];
-//            if (cell == nil) {
-//                cell = [[NSBundle mainBundle] loadNibNamed:@"GroundTableViewCell" owner:nil options:nil].lastObject;
-//            }
-//            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//            
-//            FX_ComListModel *model = [[FX_ComListModel alloc]init];
-//            model = self.rightDataArray[indexPath.row - 1];
-//            cell.contentLabel.text = model.content;
-//            [cell.headerImageView sd_setImageWithURL:[NSURL URLWithString:model.imgUrl] placeholderImage:[UIImage imageNamed:@"moren_pt"]];
-//            ZRViewRadius(cell.smallImageView, 12);
-//            [cell.smallImageView sd_setImageWithURL:[NSURL URLWithString:model.headerUrl] placeholderImage:[UIImage imageNamed:@"morentouxiang"]];
-//            cell.nickNameLabel.text = model.nickName;
-//            cell.comNameLbel.text = model.companyName;
-//            cell.timeLabel.text = model.time;
-//            [cell.zanNumLabel setTitle:model.greatNum forState:UIControlStateNormal];
-//            [cell.commentNumLabel setTitle:model.commentNum forState:UIControlStateNormal];
-//            [cell.addressLabel setTitle:model.address forState:UIControlStateNormal];
-//            
-//            if ([model.isLike isEqualToString:@"1"]) {
-//                cell.zanBtn.selected = YES;
-//            }else {
-//                cell.zanBtn.selected = NO;
-//            }
-//            
-//            [cell.shareBtn addTarget:self action:@selector(shareActionWithContent:) forControlEvents:UIControlEventTouchUpInside];
-//            return cell;
-            
             FX_ComListModel *model = [[FX_ComListModel alloc]init];
             model = self.rightDataArray[indexPath.row - 1];
-            
-            
-            if (model.imgUrl.length < 6) {
-                static NSString *left_Identifier = @"GroundNoImageTableViewCell";
-                GroundNoImageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:left_Identifier];
-                if (cell == nil) {
-                    cell = [[NSBundle mainBundle] loadNibNamed:@"GroundNoImageTableViewCell" owner:nil options:nil].lastObject;
+            if([model.fileType isEqualToString:@"1"]) {
+                //图片或者文字
+                if (model.imgUrl.length < 6) {
+                    //纯文本
+                    static NSString *left_Identifier = @"GroundNoImageTableViewCell";
+                    GroundNoImageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:left_Identifier];
+                    if (cell == nil) {
+                        cell = [[NSBundle mainBundle] loadNibNamed:@"GroundNoImageTableViewCell" owner:nil options:nil].lastObject;
+                    }
+                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                    cell.contentLabel.text = model.content;
+                    
+                    [cell.smallImageView sd_setImageWithURL:[NSURL URLWithString:model.headerUrl] placeholderImage:[UIImage imageNamed:@"morentouxiang"]];
+                    ZRViewRadius(cell.smallImageView, 12);
+                    cell.nickNameLabel.text = model.nickName;
+                    cell.comNameLbel.text = model.companyName;
+                    cell.timeLabel.text = model.time;
+                    [cell.zanNumLabel setTitle:model.greatNum forState:UIControlStateNormal];
+                    [cell.commentNumLabel setTitle:model.commentNum forState:UIControlStateNormal];
+                    [cell.addressLabel setTitle:model.address forState:UIControlStateNormal];
+                    
+                    
+                    [cell.shareBtn addTarget:self action:@selector(shareActionWithContent:) forControlEvents:UIControlEventTouchUpInside];
+                    
+                    if ([model.companyName isEqualToString:@""] || model.companyName == nil || [model.companyName isKindOfClass:[NSNull class]]) {
+                        cell.shuView.hidden = YES;
+                    }else {
+                        cell.shuView.hidden = NO;
+                    }
+                    
+                    CGFloat width1 = [ControlUtil widthWithContent:model.nickName withFont:[UIFont systemFontOfSize:14] withHeight:21];
+                    cell.nickNameWidthLabel.constant = width1;
+                    
+                    CGFloat height = [ControlUtil heightWithContent:model.content withFont:[UIFont systemFontOfSize:15] withWidth:FITWIDTH(326)];
+                    if (height >= 60) {
+                        height = 60;
+                    }
+                    cell.labelHeightCons.constant = height;
+                    
+                    if ([model.isLike isEqualToString:@"1"]) {
+                        cell.zanBtn.selected = YES;
+                    }else {
+                        cell.zanBtn.selected = NO;
+                    }
+                    [cell.zanBtn addTarget:self action:@selector(dianzanActionNO:) forControlEvents:UIControlEventTouchUpInside];
+                    return cell;
+                } else {
+                    //带图的
+                    static NSString *left_Identifier = @"GroundTableViewCell";
+                    GroundTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:left_Identifier];
+                    if (cell == nil) {
+                        cell = [[NSBundle mainBundle] loadNibNamed:@"GroundTableViewCell" owner:nil options:nil].lastObject;
+                    }
+                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                    cell.contentLabel.text = model.content;
+                    [cell.headerImageView sd_setImageWithURL:[NSURL URLWithString:model.imgUrl] placeholderImage:[UIImage imageNamed:@"moren_pt"]];
+                    [cell.smallImageView sd_setImageWithURL:[NSURL URLWithString:model.headerUrl] placeholderImage:[UIImage imageNamed:@"morentouxiang"]];
+                    ZRViewRadius(cell.smallImageView, 12);
+                    cell.nickNameLabel.text = model.nickName;
+                    cell.comNameLbel.text = model.companyName;
+                    cell.timeLabel.text = model.time;
+                    [cell.zanNumLabel setTitle:model.greatNum forState:UIControlStateNormal];
+                    [cell.commentNumLabel setTitle:model.commentNum forState:UIControlStateNormal];
+                    [cell.addressLabel setTitle:model.address forState:UIControlStateNormal];
+                    
+                    
+                    [cell.shareBtn addTarget:self action:@selector(shareActionWithContent:) forControlEvents:UIControlEventTouchUpInside];
+                    
+                    if ([model.companyName isEqualToString:@""] || model.companyName == nil || [model.companyName isKindOfClass:[NSNull class]]) {
+                        cell.shuView.hidden = YES;
+                    }else {
+                        cell.shuView.hidden = NO;
+                    }
+                    
+                    
+                    
+                    CGFloat height = [ControlUtil heightWithContent:model.content withFont:[UIFont systemFontOfSize:15] withWidth:FITWIDTH(326)];
+                    if (height >= 60) {
+                        height = 60;
+                    }
+                    cell.labelHeightCons.constant = height;
+                    
+                    if ([model.isLike isEqualToString:@"1"]) {
+                        cell.zanBtn.selected = YES;
+                    }else {
+                        cell.zanBtn.selected = NO;
+                    }
+                    [cell.zanBtn addTarget:self action:@selector(dianzanActionNO:) forControlEvents:UIControlEventTouchUpInside];
+                    return cell;
                 }
-                cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 
-                cell.contentLabel.text = model.content;
+                
+                
+            } else if ([model.fileType isEqualToString:@"2"]){
+                //语音
+                
+                static NSString *left_Identifier = @"GroupSpeechTableViewCell";
+                GroupSpeechTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:left_Identifier];
+                if (cell == nil) {
+                    cell = [[NSBundle mainBundle] loadNibNamed:@"GroupSpeechTableViewCell" owner:nil options:nil].lastObject;
+                }
+                
                 [cell.smallImageView sd_setImageWithURL:[NSURL URLWithString:model.headerUrl] placeholderImage:[UIImage imageNamed:@"morentouxiang"]];
                 ZRViewRadius(cell.smallImageView, 12);
                 cell.nickNameLabel.text = model.nickName;
-                cell.comNameLbel.text = model.companyName;
+                cell.comNameLabel.text = model.companyName;
                 cell.timeLabel.text = model.time;
                 [cell.zanNumLabel setTitle:model.greatNum forState:UIControlStateNormal];
                 [cell.commentNumLabel setTitle:model.commentNum forState:UIControlStateNormal];
                 [cell.addressLabel setTitle:model.address forState:UIControlStateNormal];
+                
+                [cell.playBtn setImage:[UIImage imageNamed:@"icon_yuying"] forState:UIControlStateNormal];
                 
                 
                 [cell.shareBtn addTarget:self action:@selector(shareActionWithContent:) forControlEvents:UIControlEventTouchUpInside];
@@ -748,14 +913,13 @@
                     cell.shuView.hidden = NO;
                 }
                 
+                
                 CGFloat height = [ControlUtil heightWithContent:model.content withFont:[UIFont systemFontOfSize:15] withWidth:FITWIDTH(326)];
                 if (height >= 60) {
                     height = 60;
                 }
-                cell.labelHeightCons.constant = height;
                 
-                CGFloat width1 = [ControlUtil widthWithContent:model.nickName withFont:[UIFont systemFontOfSize:14] withHeight:21];
-                cell.nickNameWidthLabel.constant = width1;
+                
                 if ([model.isLike isEqualToString:@"1"]) {
                     cell.zanBtn.selected = YES;
                 }else {
@@ -763,14 +927,17 @@
                 }
                 [cell.zanBtn addTarget:self action:@selector(dianzanActionNO:) forControlEvents:UIControlEventTouchUpInside];
                 return cell;
-            }else {
+                
+                
+            } else {
+                //视频，先用image的cell
+                
                 static NSString *left_Identifier = @"GroundTableViewCell";
                 GroundTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:left_Identifier];
                 if (cell == nil) {
                     cell = [[NSBundle mainBundle] loadNibNamed:@"GroundTableViewCell" owner:nil options:nil].lastObject;
                 }
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
-                
                 cell.contentLabel.text = model.content;
                 [cell.headerImageView sd_setImageWithURL:[NSURL URLWithString:model.imgUrl] placeholderImage:[UIImage imageNamed:@"moren_pt"]];
                 [cell.smallImageView sd_setImageWithURL:[NSURL URLWithString:model.headerUrl] placeholderImage:[UIImage imageNamed:@"morentouxiang"]];
@@ -782,31 +949,32 @@
                 [cell.commentNumLabel setTitle:model.commentNum forState:UIControlStateNormal];
                 [cell.addressLabel setTitle:model.address forState:UIControlStateNormal];
                 
-                CGFloat height = [ControlUtil heightWithContent:model.content withFont:[UIFont systemFontOfSize:15] withWidth:FITWIDTH(267)];
-                if (height >= 60) {
-                    height = 60;
-                }
-                cell.labelHeightCons.constant = height;
                 
                 [cell.shareBtn addTarget:self action:@selector(shareActionWithContent:) forControlEvents:UIControlEventTouchUpInside];
-                CGFloat width1 = [ControlUtil widthWithContent:model.nickName withFont:[UIFont systemFontOfSize:14] withHeight:21];
                 
                 if ([model.companyName isEqualToString:@""] || model.companyName == nil || [model.companyName isKindOfClass:[NSNull class]]) {
                     cell.shuView.hidden = YES;
                 }else {
                     cell.shuView.hidden = NO;
                 }
-                cell.nickNameWidthCons.constant = width1;
+                
+                
+                
+                CGFloat height = [ControlUtil heightWithContent:model.content withFont:[UIFont systemFontOfSize:15] withWidth:FITWIDTH(326)];
+                if (height >= 60) {
+                    height = 60;
+                }
+                cell.labelHeightCons.constant = height;
+                
                 if ([model.isLike isEqualToString:@"1"]) {
                     cell.zanBtn.selected = YES;
                 }else {
                     cell.zanBtn.selected = NO;
                 }
-                [cell.zanBtn addTarget:self action:@selector(dianzanActionHas:) forControlEvents:UIControlEventTouchUpInside];
+                [cell.zanBtn addTarget:self action:@selector(dianzanActionNO:) forControlEvents:UIControlEventTouchUpInside];
                 return cell;
+                
             }
-
-            
         }
     }else {
         return nil;

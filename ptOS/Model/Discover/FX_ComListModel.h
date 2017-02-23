@@ -21,5 +21,6 @@
 @property (nonatomic, copy)NSString *greatNum;
 @property (nonatomic, copy)NSString *commentNum;
 @property (nonatomic, copy)NSString *address;
+@property (nonatomic, copy)NSString *fileType;
 
 @end

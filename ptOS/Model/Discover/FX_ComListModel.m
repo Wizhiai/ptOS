@@ -23,6 +23,7 @@
         self.greatNum = [dict strForKey:@"greatNum"];
         self.commentNum = [dict strForKey:@"commentNum"];
         self.address = [dict strForKey:@"address"];
+        self.fileType = [dict strForKey:@"fileType"];
     }
     return self;
 }

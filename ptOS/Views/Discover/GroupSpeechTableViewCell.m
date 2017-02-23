@@ -12,13 +12,13 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    ZRViewRadius(self.bottomView1, 10);
+    [self.zanBtn setImage:[UIImage imageNamed:@"icon_dianzan"] forState:UIControlStateNormal];
+    [self.zanBtn setImage:[UIImage imageNamed:@"icon_dianzhan_blue"] forState:UIControlStateSelected];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+    
 }
-
 @end

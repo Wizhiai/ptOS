@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface Discover_companyTableViewCell : UITableViewCell
+@interface Discover_companyTableViewCell : UITableViewCell<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIImageView *m_ImageView;
 
 @property (weak, nonatomic) IBOutlet UILabel *companyName;
+@property (strong, nonatomic) IBOutlet UICollectionView *disPlayCollectionView;
+@property (strong, nonatomic) IBOutlet UILabel *leftLabel;
+@property (strong, nonatomic) IBOutlet UILabel *rightLabel;
 
 @end
