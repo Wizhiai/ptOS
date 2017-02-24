@@ -20,7 +20,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame withString:(NSString *)string
 {
-    self = [[[NSBundle mainBundle] loadNibNamed:@"View" owner:nil options:nil] lastObject];
+    self = [[[NSBundle mainBundle] loadNibNamed:@"ScreenView" owner:nil options:nil] lastObject];
     if (self) {
         [self setFrame:frame];
         self.conditionArr = [NSMutableArray arrayWithObjects:@"15", nil];

@@ -10,7 +10,7 @@
 
 @interface QZ_CompanyListApi : BaseNetApi
 
-- (id) initWithPage:(NSString *)page withCoordinate:(NSString *)coordinate;
+- (id) initWithPage:(NSString *)page withCoordinate:(NSString *)coordinate widtCity:(NSString *)city;
 
 - (NSArray *)getCompanyList;
 

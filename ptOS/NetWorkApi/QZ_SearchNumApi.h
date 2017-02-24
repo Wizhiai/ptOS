@@ -10,7 +10,7 @@
 #import "QZ_seachNumModel.h"
 @interface QZ_SearchNumApi : BaseNetApi
 
-- (id)initWithKeyword:(NSString *)keyword;
+- (id)initWithKeyword:(NSString *)keyword withCity:(NSString *)city;
 
 - (QZ_seachNumModel *)getSearchNum;
 

@@ -364,9 +364,11 @@
     
     
     //调用网络接口请求工作列表
-    [GlobalData sharedInstance].coordinate = city;
-    NSLog(@"当前城市:%@",[GlobalData sharedInstance].coordinate);
+    [GlobalData sharedInstance].location = city;
+    NSLog(@"当前城市:%@",[GlobalData sharedInstance].location);
     [self jobsListApiNet];
+    
+    
     
     
     
@@ -447,6 +449,7 @@
     [self removeScreenView];
     self.sortView.moneyBtn.selected = NO;
     //需要做新的网络请求去获取工作信息
+    [self jobsListApiNet];
     
     NSLog(@"%@",[notification.userInfo objectForKey:@"0"]);
 }
@@ -656,10 +659,7 @@
     if (self.jobListApi && !self.jobListApi.requestOperation.isFinished) {
         [self.jobListApi stop];
     }
-    NSLog(@"%ld",_leftPage);
-    NSLog(@"%@",_sort);
-    NSLog(@"%@",[GlobalData sharedInstance].coordinate);
-    self.jobListApi = [[QZ_JobListApi alloc]initWithPage:[NSString stringWithFormat:@"%ld",(long)_leftPage] withSort:_sort withCoordinate:[GlobalData sharedInstance].coordinate];
+     self.jobListApi = [[QZ_JobListApi alloc]initWithPage:[NSString stringWithFormat:@"%ld",(long)_leftPage] withSort:_sort withCoordinate:[GlobalData sharedInstance].coordinate widthCity:[GlobalData sharedInstance].location];
     self.jobListApi.netLoadingDelegate = self;
     self.jobListApi.noNetWorkingDelegate = self;
     [self.jobListApi startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
@@ -668,7 +668,7 @@
         if (result.isCorrectResult) {
             
             [self removePlaceHolderView];
-            
+            NSLog(@"%@",result);
             if (_leftPage == 1) {
                 self.leftDataArray = [NSMutableArray arrayWithArray:[result getJobsList]];
             }else {
@@ -707,7 +707,7 @@
     if (self.companyListApi && !self.companyListApi.requestOperation.isFinished) {
         [self.companyListApi stop];
     }
-    self.companyListApi = [[QZ_CompanyListApi alloc]initWithPage:[NSString stringWithFormat:@"%ld",(long)_rightPage] withCoordinate:[GlobalData sharedInstance].coordinate];
+    self.companyListApi = [[QZ_CompanyListApi alloc]initWithPage:[NSString stringWithFormat:@"%ld",(long)_rightPage] withCoordinate:[GlobalData sharedInstance].coordinate widtCity:[GlobalData sharedInstance].location];
     self.companyListApi.netLoadingDelegate = self;
     self.companyListApi.noNetWorkingDelegate = self;
     [self.companyListApi startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
@@ -755,7 +755,7 @@
     if (self.searchJobApi && !self.searchJobApi.requestOperation.isFinished) {
         [self.searchJobApi stop];
     }
-    self.searchJobApi = [[QZ_JobSearchApi alloc]initWithPage:[NSString stringWithFormat:@"%ld",(long)_search_leftPage] withSort:_sort withKeyword:self.searchNavView.searchField.text withCoordinate:[GlobalData sharedInstance].coordinate];
+    self.searchJobApi = [[QZ_JobSearchApi alloc]initWithPage:[NSString stringWithFormat:@"%ld",(long)_search_leftPage] withSort:_sort withKeyword:self.searchNavView.searchField.text withCoordinate:[GlobalData sharedInstance].coordinate withCity:[GlobalData sharedInstance].location] ;
     self.searchJobApi.netLoadingDelegate = self;
     self.searchJobApi.noNetWorkingDelegate = self;
     [self.searchJobApi startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
@@ -797,7 +797,7 @@
     if (self.searchComApi && !self.searchComApi.requestOperation.isFinished) {
         [self.searchComApi stop];
     }
-    self.searchComApi = [[QZ_ComSearchApi alloc]initWithPage:[NSString stringWithFormat:@"%ld",_search_rightPage] withCoordinate:[GlobalData sharedInstance].coordinate withKeyword:self.searchNavView.searchField.text];
+    self.searchComApi = [[QZ_ComSearchApi alloc]initWithPage:[NSString stringWithFormat:@"%ld",_search_rightPage] withCoordinate:[GlobalData sharedInstance].coordinate withKeyword:self.searchNavView.searchField.text withCity:[GlobalData sharedInstance].location];
     self.searchComApi.netLoadingDelegate = self;
     self.searchComApi.noNetWorkingDelegate = self;
     [self.searchComApi startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
@@ -841,7 +841,7 @@
         [self.searNumApi stop];
     }
     
-    self.searNumApi = [[QZ_SearchNumApi alloc]initWithKeyword:self.searchNavView.searchField.text];
+    self.searNumApi = [[QZ_SearchNumApi alloc]initWithKeyword:self.searchNavView.searchField.text withCity:[GlobalData sharedInstance].location];
     self.searNumApi.netLoadingDelegate = self;
     [self.searNumApi startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
         
@@ -1128,12 +1128,12 @@
         //如果获取到定位，显示当前城市。默认显示常州
         NSLog(@"---%@",self.selectedCity);
         
-        if([GlobalData sharedInstance].coordinate) {
-             [_jobsNavView.locationBtn  setTitle:[GlobalData sharedInstance].coordinate forState:UIControlStateNormal];
+        if([GlobalData sharedInstance].location) {
+             [_jobsNavView.locationBtn  setTitle:[GlobalData sharedInstance].location forState:UIControlStateNormal];
             
         } else {
              [_jobsNavView.locationBtn  setTitle:@"常州" forState:UIControlStateNormal];
-             [GlobalData sharedInstance].coordinate= @"常州";
+             [GlobalData sharedInstance].location= @"常州";
         }
         
         [_jobsNavView.locationBtn addTarget:self action:@selector(locationBtnPress) forControlEvents:UIControlEventTouchUpInside];

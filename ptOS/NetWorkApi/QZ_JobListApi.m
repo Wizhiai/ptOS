@@ -13,6 +13,7 @@
     NSString *_page;
     NSString *_sort;
     NSString *_coordinate;
+    NSString *_city;
 }
 - (id)initWithPage:(NSString *)page withSort:(NSString *)sort withCoordinate:(NSString *)coordinate {
     self = [super init];
@@ -20,6 +21,17 @@
         _page = page;
         _sort = sort;
         _coordinate = coordinate;
+    }
+    return self;
+}
+
+- (id) initWithPage:(NSString *)page withSort:(NSString *)sort withCoordinate:(NSString *)coordinate widthCity:(NSString *)city{
+    self = [super init];
+    if (self) {
+        _page = page;
+        _sort = sort;
+        _coordinate = coordinate;
+        _city = city;
     }
     return self;
 }
@@ -47,6 +59,7 @@
     if(dict)
     {
         NSDictionary *dataDict = [dict objectForKey:@"data"];
+        NSLog(@"%@",dataDict);
         if(dataDict && [dataDict isKindOfClass:[NSDictionary class]])
         {
             NSArray *array = [dataDict objectForKey:@"dataList"];

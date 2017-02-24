@@ -10,7 +10,7 @@
 
 @interface QZ_ComSearchApi : BaseNetApi
 
-- (id) initWithPage:(NSString *)page withCoordinate:(NSString *)coordinate withKeyword:(NSString *)keyword;
+- (id) initWithPage:(NSString *)page withCoordinate:(NSString *)coordinate withKeyword:(NSString *)keyword withCity:(NSString *)city;
 
 - (NSArray *)getCompanySearchList;
 

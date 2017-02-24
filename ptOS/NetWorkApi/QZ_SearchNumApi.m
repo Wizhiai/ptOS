@@ -11,10 +11,12 @@
 @implementation QZ_SearchNumApi
 {
     NSString *_keyword;
+    NSString *_city;
 }
-- (id)initWithKeyword:(NSString *)keyword {
+- (id)initWithKeyword:(NSString *)keyword withCity:(NSString *)city{
     if (self == [super init]) {
         _keyword = keyword;
+        _city = city;
     }
     return self;
 }

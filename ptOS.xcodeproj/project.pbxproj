@@ -21,7 +21,7 @@
 		5DB2E0B51E595D2300A56507 /* ChoosePublishWay.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB2E0B41E595D2300A56507 /* ChoosePublishWay.m */; };
 		5DB2E0B71E595DE100A56507 /* choosePublishWay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DB2E0B61E595DE100A56507 /* choosePublishWay.xib */; };
 		5DF836F51E500AFF0037F542 /* SelectCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF836F41E500AFF0037F542 /* SelectCityViewController.m */; };
-		5DFDD7401E51B68900B1F2E2 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DFDD73F1E51B68900B1F2E2 /* View.xib */; };
+		5DFDD7401E51B68900B1F2E2 /* ScreenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DFDD73F1E51B68900B1F2E2 /* ScreenView.xib */; };
 		5DFDD7431E51B92B00B1F2E2 /* screenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFDD7421E51B92B00B1F2E2 /* screenView.m */; };
 		F00201211D8A5BE5006F0136 /* Discover_DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F00201201D8A5BE5006F0136 /* Discover_DetailViewController.m */; };
 		F00201231D8A5E4E006F0136 /* icon_dianzan_press.png in Resources */ = {isa = PBXBuildFile; fileRef = F00201221D8A5E4E006F0136 /* icon_dianzan_press.png */; };
@@ -532,7 +532,7 @@
 		5DB2E0B61E595DE100A56507 /* choosePublishWay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = choosePublishWay.xib; sourceTree = "<group>"; };
 		5DF836F31E500AFF0037F542 /* SelectCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCityViewController.h; sourceTree = "<group>"; };
 		5DF836F41E500AFF0037F542 /* SelectCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCityViewController.m; sourceTree = "<group>"; };
-		5DFDD73F1E51B68900B1F2E2 /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
+		5DFDD73F1E51B68900B1F2E2 /* ScreenView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScreenView.xib; sourceTree = "<group>"; };
 		5DFDD7411E51B92B00B1F2E2 /* screenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = screenView.h; sourceTree = "<group>"; };
 		5DFDD7421E51B92B00B1F2E2 /* screenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = screenView.m; sourceTree = "<group>"; };
 		F002011F1D8A5BE5006F0136 /* Discover_DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Discover_DetailViewController.h; sourceTree = "<group>"; };
@@ -1374,7 +1374,7 @@
 				5DA5A7CD1E5554F7000F915A /* JLSliderMoveView.m */,
 				5DFDD7411E51B92B00B1F2E2 /* screenView.h */,
 				5DFDD7421E51B92B00B1F2E2 /* screenView.m */,
-				5DFDD73F1E51B68900B1F2E2 /* View.xib */,
+				5DFDD73F1E51B68900B1F2E2 /* ScreenView.xib */,
 			);
 			name = ScreenView;
 			sourceTree = "<group>";
@@ -3176,7 +3176,7 @@
 				F0616B8C1D76E7B70041599B /* FavoriteCompanyTableViewCell.xib in Resources */,
 				5D3E707B1E5C38B3004CAD59 /* icon_yuying.png in Resources */,
 				F00201271D8A5ECE006F0136 /* icon_dianzan_white.png in Resources */,
-				5DFDD7401E51B68900B1F2E2 /* View.xib in Resources */,
+				5DFDD7401E51B68900B1F2E2 /* ScreenView.xib in Resources */,
 				F0D4FFD81D7E739C00BA07D1 /* icon_paixu_down.png in Resources */,
 				F075DA1C1DA8B41700B547D2 /* README.txt in Resources */,
 				F07315291D7C03070057213C /* icon_shoujihao.png in Resources */,

@@ -10,7 +10,7 @@
 
 @interface QZ_JobSearchApi : BaseNetApi
 
-- (id) initWithPage:(NSString *)page withSort:(NSString *)sort withKeyword:(NSString *)keyword withCoordinate:(NSString *)coordinate;
+- (id) initWithPage:(NSString *)page withSort:(NSString *)sort withKeyword:(NSString *)keyword withCoordinate:(NSString *)coordinate withCity:(NSString *)city;
 
 - (NSArray *)getJobSearchList;
 

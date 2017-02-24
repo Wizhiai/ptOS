@@ -16,14 +16,16 @@
     NSString *_sort;
     NSString *_coordinate;
     NSString *_keyword;
+    NSString *_city;
 }
-- (id) initWithPage:(NSString *)page withSort:(NSString *)sort withKeyword:(NSString *)keyword withCoordinate:(NSString *)coordinate {
+- (id) initWithPage:(NSString *)page withSort:(NSString *)sort withKeyword:(NSString *)keyword withCoordinate:(NSString *)coordinate withCity:(NSString *)city {
     self = [super init];
     if (self) {
         _page = page;
         _sort = sort;
         _coordinate = coordinate;
         _keyword = keyword;
+        _city = city;
     }
     return self;
 }

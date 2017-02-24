@@ -13,13 +13,15 @@
     NSString *_page;
     NSString *_coordinate;
     NSString *_keyword;
+    NSString *_city;
 }
-- (id) initWithPage:(NSString *)page withCoordinate:(NSString *)coordinate withKeyword:(NSString *)keyword{
+- (id) initWithPage:(NSString *)page withCoordinate:(NSString *)coordinate withKeyword:(NSString *)keyword withCity:(NSString *)city{
     self = [super init];
     if (self) {
         _page = page;
         _coordinate = coordinate;
         _keyword = keyword;
+        _city = city;
     }
     return self;
 }

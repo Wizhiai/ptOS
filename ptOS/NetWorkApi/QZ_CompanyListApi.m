@@ -12,12 +12,14 @@
 {
     NSString *_page;
     NSString *_coordinate;
+    NSString *_city;
 }
-- (id) initWithPage:(NSString *)page withCoordinate:(NSString *)coordinate{
+ - (id) initWithPage:(NSString *)page withCoordinate:(NSString *)coordinate widtCity:(NSString *)city{
     self = [super init];
     if (self) {
         _page = page;
         _coordinate = coordinate;
+        _city = city;
     }
     return self;
 }
