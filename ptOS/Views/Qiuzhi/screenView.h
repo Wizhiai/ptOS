@@ -18,6 +18,12 @@
 //筛选条件数组
 @property (strong , nonatomic)NSMutableArray *conditionArr;
 
+@property (strong , nonatomic)NSMutableArray *experience;
+
+@property (strong , nonatomic)NSMutableArray *educations;
+
+@property (strong , nonatomic)NSMutableArray *jobNatures;
+
 @property (weak, nonatomic) IBOutlet UIButton *sureButton;
 
 

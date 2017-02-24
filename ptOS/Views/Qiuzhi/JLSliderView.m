@@ -156,13 +156,17 @@
     NSString *string; //月薪范围label
     if([self.rightTopLabel.text isEqualToString:@"10k"] ){
         rightStr = @"不限";
+        [GlobalData sharedInstance].maxSalary = @"10";
     } else {
         rightStr = self.rightTopLabel.text;
+        [GlobalData sharedInstance].maxSalary = self.rightTopLabel.text;
     }
     if([self.leftTopLabel.text isEqualToString:@"1k"]){
         leftStr = @"不限";
+        [GlobalData sharedInstance].minSalary = @"0";
     } else {
         leftStr = self.leftTopLabel.text;
+        [GlobalData sharedInstance].minSalary = self.leftTopLabel.text;
     }
     if([leftStr isEqualToString:@"不限"]&[rightStr isEqualToString:@"不限"]){
         string = @"(不限)";

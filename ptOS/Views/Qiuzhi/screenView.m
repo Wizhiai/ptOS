@@ -25,6 +25,12 @@
         [self setFrame:frame];
         self.conditionArr = [NSMutableArray arrayWithObjects:@"15", nil];
         
+        self.experience = [NSMutableArray arrayWithObjects:@"0",@"0",@"0", nil];
+        
+        self.educations = [NSMutableArray arrayWithObjects:@"0",@"0",@"0", @"0",@"0",@"0",@"0",nil];
+        
+        self.jobNatures = [NSMutableArray arrayWithObjects:@"0",@"0",@"0", nil];
+        
         self.salary.text = @"(不限)";
         self.sliderView = [[JLSliderView alloc]initWithFrame:CGRectMake(0, 40, self.frame.size.width, 40) sliderType:JLSliderTypeCenter];
         
@@ -35,40 +41,6 @@
     return self;
 }
 
-//用于转换数组中的信息
-- (void)chooseBtnClicked:(UIButton *)sender {
-    switch (sender.tag) {
-        case 0:
-            break;
-        case 1:
-            break;
-        case 2:
-            break;
-        case 3:
-            break;
-        case 4:
-            break;
-        case 5:
-            break;
-        case 6:
-            break;
-        case 7:
-            break;
-        case 8:
-            break;
-        case 9:
-            break;
-        case 10:
-            break;
-        case 11:
-            break;
-        case 12:
-            break;
-            
-        default:
-            break;
-    }
-}
 
 
 //选择条件
@@ -78,12 +50,27 @@
     if(sender.selected ){
         //将条件加入数组
         
-           [self.conditionArr removeObject:[NSString stringWithFormat:@"%ld",sender.tag]];
+//        [self.conditionArr removeObject:[NSString stringWithFormat:@"%ld",sender.tag]];
+        if(sender.tag <3) {
+            [self.experience setObject:@"0" atIndexedSubscript:sender.tag];
+        } else if (sender.tag>=3&&sender.tag<10){
+            [self.educations setObject:@"0" atIndexedSubscript:sender.tag-3];
+        } else {
+            [self.jobNatures setObject:@"0" atIndexedSubscript:sender.tag-10];
+        }
+        
          sender.backgroundColor = [UIColor whiteColor];
         sender.selected = NO;
     } else {
         //将筛选条件移出
-         [self.conditionArr addObject:[NSString stringWithFormat:@"%ld",sender.tag]];
+//         [self.conditionArr addObject:[NSString stringWithFormat:@"%ld",sender.tag]];
+        if(sender.tag <3) {
+            [self.experience setObject:@"1" atIndexedSubscript:sender.tag];
+        } else if (sender.tag>=3&&sender.tag<10){
+            [self.educations setObject:@"1" atIndexedSubscript:sender.tag-3];
+        } else {
+            [self.jobNatures setObject:@"1" atIndexedSubscript:sender.tag-10];
+        }
          sender.backgroundColor = [UIColor colorWithRed:112/255.0 green:124/255.0 blue:248/255.0 alpha:1];
        
         sender.selected = YES;
@@ -96,7 +83,13 @@
     NSLog(@"1111hhhhhhh");
     NSLog(@"%@",self.conditionArr);
     //需要将所选条件拼接完整，具体看服务端借口规则
+    [GlobalData sharedInstance].experience = [self.experience componentsJoinedByString:@","];
+
+    [GlobalData sharedInstance].educations = [self.educations componentsJoinedByString:@","];
     
+    [GlobalData sharedInstance].jobNatures = [self.jobNatures componentsJoinedByString:@","];
+    
+ 
     NSMutableDictionary *conditionDic = [[NSMutableDictionary alloc]initWithObjectsAndKeys:self.conditionArr,@"0", nil];
     //发一个通知，提示
     [[NSNotificationCenter defaultCenter] postNotificationName:@"sure" object:self userInfo:conditionDic];

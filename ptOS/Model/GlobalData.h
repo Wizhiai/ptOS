@@ -14,7 +14,17 @@
 
 @property (nonatomic,strong)NSString *coordinate;
 
-@property (nonatomic,strong)NSString *location;
+@property (nonatomic,strong)NSString *location; //当前选择城市
+
+@property (nonatomic, strong)NSString *minSalary; //最低薪资
+
+@property (nonatomic, strong)NSString *maxSalary; //最大薪资
+
+@property (nonatomic , strong) NSString *experience; //工作经验
+
+@property (nonatomic , strong) NSString *educations; //学历
+
+@property (nonatomic , strong)NSString *jobNatures; //工作性质
 
 
 //简历
