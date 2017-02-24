@@ -659,12 +659,12 @@
     if (self.jobListApi && !self.jobListApi.requestOperation.isFinished) {
         [self.jobListApi stop];
     }
-     self.jobListApi = [[QZ_JobListApi alloc]initWithPage:[NSString stringWithFormat:@"%ld",(long)_leftPage] withSort:_sort withCoordinate:[GlobalData sharedInstance].coordinate widthCity:[GlobalData sharedInstance].location];
+     self.jobListApi = [[QZ_JobListApi alloc]initWithPage:[NSString stringWithFormat:@"%ld",(long)_leftPage] withSort:_sort withCoordinate:[GlobalData sharedInstance].coordinate widthCity:[GlobalData sharedInstance].location withMinSalary:[GlobalData sharedInstance].minSalary withMaxSalary:[GlobalData sharedInstance].maxSalary withExperience:[GlobalData sharedInstance].experience withEducations:[GlobalData sharedInstance].educations withJobNatures:[GlobalData sharedInstance].jobNatures];
     self.jobListApi.netLoadingDelegate = self;
     self.jobListApi.noNetWorkingDelegate = self;
     [self.jobListApi startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
         QZ_JobListApi *result = (QZ_JobListApi *)request;
-      
+         NSLog(@"%@",result);
         if (result.isCorrectResult) {
             
             [self removePlaceHolderView];
@@ -678,6 +678,7 @@
             NSInteger count = [result getJobsList].count;
             if (count == 0) {
                 [(MJRefreshAutoFooter *)self.job_tbView.mj_footer setHidden:YES];
+                [self addPlaceHolderView];
             }else {
                 [(MJRefreshAutoFooter *)self.job_tbView.mj_footer setHidden:NO];
             }
@@ -755,7 +756,7 @@
     if (self.searchJobApi && !self.searchJobApi.requestOperation.isFinished) {
         [self.searchJobApi stop];
     }
-    self.searchJobApi = [[QZ_JobSearchApi alloc]initWithPage:[NSString stringWithFormat:@"%ld",(long)_search_leftPage] withSort:_sort withKeyword:self.searchNavView.searchField.text withCoordinate:[GlobalData sharedInstance].coordinate withCity:[GlobalData sharedInstance].location] ;
+    self.searchJobApi = [[QZ_JobSearchApi alloc]initWithPage:[NSString stringWithFormat:@"%ld",(long)_search_leftPage] withSort:_sort withKeyword:self.searchNavView.searchField.text withCoordinate:[GlobalData sharedInstance].coordinate withCity:[GlobalData sharedInstance].location withMinSalary:[GlobalData sharedInstance].minSalary withMaxSalary:[GlobalData sharedInstance].maxSalary withExperience:[GlobalData sharedInstance].experience withEducations:[GlobalData sharedInstance].educations withJobNatures:[GlobalData sharedInstance].jobNatures] ;
     self.searchJobApi.netLoadingDelegate = self;
     self.searchJobApi.noNetWorkingDelegate = self;
     [self.searchJobApi startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {

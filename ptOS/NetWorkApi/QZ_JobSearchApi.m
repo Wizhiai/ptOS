@@ -17,8 +17,13 @@
     NSString *_coordinate;
     NSString *_keyword;
     NSString *_city;
+    NSString *_minSalary;
+    NSString *_maxSalary;
+    NSString *_experience;
+    NSString *_education;
+    NSString *_jobNatures;
 }
-- (id) initWithPage:(NSString *)page withSort:(NSString *)sort withKeyword:(NSString *)keyword withCoordinate:(NSString *)coordinate withCity:(NSString *)city {
+- (id) initWithPage:(NSString *)page withSort:(NSString *)sort withKeyword:(NSString *)keyword withCoordinate:(NSString *)coordinate withCity:(NSString *)city withMinSalary:(NSString *)minSalary withMaxSalary:(NSString *)maxSalary withExperience:(NSString *)experience withEducations:(NSString *)education withJobNatures:(NSString *)jobNatures {
     self = [super init];
     if (self) {
         _page = page;
@@ -26,6 +31,11 @@
         _coordinate = coordinate;
         _keyword = keyword;
         _city = city;
+        _maxSalary =maxSalary;
+        _minSalary = minSalary;
+        _experience = experience;
+        _education = education;
+        _jobNatures = jobNatures;
     }
     return self;
 }

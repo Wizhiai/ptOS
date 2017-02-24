@@ -14,27 +14,29 @@
     NSString *_sort;
     NSString *_coordinate;
     NSString *_city;
+    NSString *_minSalary;
+    NSString *_maxSalary;
+    NSString *_experiences;
+    NSString *_educations;
+    NSString *_jobNatures;
 }
-- (id)initWithPage:(NSString *)page withSort:(NSString *)sort withCoordinate:(NSString *)coordinate {
-    self = [super init];
-    if (self) {
-        _page = page;
-        _sort = sort;
-        _coordinate = coordinate;
-    }
-    return self;
-}
-
-- (id) initWithPage:(NSString *)page withSort:(NSString *)sort withCoordinate:(NSString *)coordinate widthCity:(NSString *)city{
+- (id)initWithPage:(NSString *)page withSort:(NSString *)sort withCoordinate:(NSString *)coordinate widthCity:(NSString *)city withMinSalary:(NSString *)minSalary withMaxSalary:(NSString *)maxSalary withExperience:(NSString *)experience withEducations:(NSString *)education withJobNatures:(NSString *)jobNatures{
     self = [super init];
     if (self) {
         _page = page;
         _sort = sort;
         _coordinate = coordinate;
         _city = city;
+        _maxSalary =maxSalary;
+        _minSalary = minSalary;
+        _experiences = experience;
+        _educations = education;
+        _jobNatures = jobNatures;
     }
     return self;
 }
+
+
 
 - (NSString *)requestUrl {
     return @"getQZZWList";
@@ -50,6 +52,12 @@
     [argument setCustomString:_page forKey:@"page"];
     [argument setCustomString:_sort forKey:@"sort"];
     [argument setCustomString:_coordinate forKey:@"coordinate"];
+    [argument setCustomString:_city forKey:@"city"];
+    [argument setCustomString:_maxSalary forKey:@"maxSalary"];
+    [argument setCustomString:_minSalary forKey:@"minSalary"];
+    [argument setCustomString:_experiences forKey:@"experiences"];
+    [argument setCustomString:_educations forKey:@"educations"];
+    [argument setCustomString:_jobNatures forKey:@"jobNatures"];
     return argument;
 }
 

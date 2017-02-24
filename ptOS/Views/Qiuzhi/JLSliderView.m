@@ -148,6 +148,11 @@
     NSUInteger right  = self.minValue +(int) (self.lineView.right - self.bgView.x)/self.bgView.width * width;
     self.currentMinValue = left;
     self.currentMaxValue = right;
+    
+    long max = right * 1000;
+    long min = left * 1000;
+   
+    
     self.rightTopLabel.text = [NSString stringWithFormat:@"%luk", (unsigned long)right];
     self.leftTopLabel.text  = [NSString stringWithFormat:@"%luk", (unsigned long)left];
     
@@ -156,17 +161,17 @@
     NSString *string; //月薪范围label
     if([self.rightTopLabel.text isEqualToString:@"10k"] ){
         rightStr = @"不限";
-        [GlobalData sharedInstance].maxSalary = @"10";
+        [GlobalData sharedInstance].maxSalary = @"10000";
     } else {
         rightStr = self.rightTopLabel.text;
-        [GlobalData sharedInstance].maxSalary = self.rightTopLabel.text;
+        [GlobalData sharedInstance].maxSalary = [NSString stringWithFormat:@"%ld",max];
     }
     if([self.leftTopLabel.text isEqualToString:@"1k"]){
         leftStr = @"不限";
-        [GlobalData sharedInstance].minSalary = @"0";
+        [GlobalData sharedInstance].minSalary = @"1000";
     } else {
         leftStr = self.leftTopLabel.text;
-        [GlobalData sharedInstance].minSalary = self.leftTopLabel.text;
+        [GlobalData sharedInstance].minSalary = [NSString stringWithFormat:@"%ld",min];
     }
     if([leftStr isEqualToString:@"不限"]&[rightStr isEqualToString:@"不限"]){
         string = @"(不限)";
