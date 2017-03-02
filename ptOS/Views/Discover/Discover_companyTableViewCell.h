@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface Discover_companyTableViewCell : UITableViewCell<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface Discover_companyTableViewCell : UITableViewCell<UICollectionViewDelegate,UICollectionViewDataSource,UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *m_ImageView;
 

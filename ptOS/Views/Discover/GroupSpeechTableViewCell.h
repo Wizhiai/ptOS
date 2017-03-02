@@ -37,5 +37,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *zanNumLabel;
 @property (weak, nonatomic) IBOutlet UIButton *commentNumLabel;
 @property (weak, nonatomic) IBOutlet UIButton *addressLabel;
+@property (strong, nonatomic) IBOutlet UILabel *time;
 
 @end

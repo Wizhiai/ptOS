@@ -20,6 +20,8 @@
 		5DA5A7D11E555549000F915A /* JLSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA5A7D01E555549000F915A /* JLSliderView.m */; };
 		5DB2E0B51E595D2300A56507 /* ChoosePublishWay.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB2E0B41E595D2300A56507 /* ChoosePublishWay.m */; };
 		5DB2E0B71E595DE100A56507 /* choosePublishWay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DB2E0B61E595DE100A56507 /* choosePublishWay.xib */; };
+		5DF4F0401E68605900ACA183 /* GetConcernCompany.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF4F03F1E68605900ACA183 /* GetConcernCompany.m */; };
+		5DF4F0431E6862F900ACA183 /* GetConcernJob.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF4F0421E6862F900ACA183 /* GetConcernJob.m */; };
 		5DF836F51E500AFF0037F542 /* SelectCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF836F41E500AFF0037F542 /* SelectCityViewController.m */; };
 		5DFDD7401E51B68900B1F2E2 /* ScreenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DFDD73F1E51B68900B1F2E2 /* ScreenView.xib */; };
 		5DFDD7431E51B92B00B1F2E2 /* screenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFDD7421E51B92B00B1F2E2 /* screenView.m */; };
@@ -530,6 +532,10 @@
 		5DB2E0B31E595D2300A56507 /* ChoosePublishWay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoosePublishWay.h; sourceTree = "<group>"; };
 		5DB2E0B41E595D2300A56507 /* ChoosePublishWay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoosePublishWay.m; sourceTree = "<group>"; };
 		5DB2E0B61E595DE100A56507 /* choosePublishWay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = choosePublishWay.xib; sourceTree = "<group>"; };
+		5DF4F03E1E68605900ACA183 /* GetConcernCompany.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetConcernCompany.h; sourceTree = "<group>"; };
+		5DF4F03F1E68605900ACA183 /* GetConcernCompany.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetConcernCompany.m; sourceTree = "<group>"; };
+		5DF4F0411E6862F900ACA183 /* GetConcernJob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GetConcernJob.h; path = ../GetConcernJob.h; sourceTree = "<group>"; };
+		5DF4F0421E6862F900ACA183 /* GetConcernJob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GetConcernJob.m; path = ../GetConcernJob.m; sourceTree = "<group>"; };
 		5DF836F31E500AFF0037F542 /* SelectCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCityViewController.h; sourceTree = "<group>"; };
 		5DF836F41E500AFF0037F542 /* SelectCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCityViewController.m; sourceTree = "<group>"; };
 		5DFDD73F1E51B68900B1F2E2 /* ScreenView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScreenView.xib; sourceTree = "<group>"; };
@@ -1527,6 +1533,10 @@
 				F02AFB1D1D951D8F00D9AE4B /* MY_ChangePswApi.m */,
 				F02AFB431D95561700D9AE4B /* MY_ChangePhoneApi.h */,
 				F02AFB441D95561700D9AE4B /* MY_ChangePhoneApi.m */,
+				5DF4F03E1E68605900ACA183 /* GetConcernCompany.h */,
+				5DF4F03F1E68605900ACA183 /* GetConcernCompany.m */,
+				5DF4F0411E6862F900ACA183 /* GetConcernJob.h */,
+				5DF4F0421E6862F900ACA183 /* GetConcernJob.m */,
 			);
 			path = My;
 			sourceTree = "<group>";
@@ -3282,6 +3292,7 @@
 				F009339F1D93E3E0006B00A9 /* FX_GroudListApi.m in Sources */,
 				F0770A2B1D8063F100E8BF36 /* UITextField+LeftMargin.m in Sources */,
 				F00DE8F41D759081004D43D0 /* UIImageView+AFNetworking.m in Sources */,
+				5DF4F0401E68605900ACA183 /* GetConcernCompany.m in Sources */,
 				F0B60ED01D9183D000F8F519 /* MJRefreshNormalHeader.m in Sources */,
 				F00DE8ED1D759081004D43D0 /* AFURLRequestSerialization.m in Sources */,
 				F075DA251DA8D09D00B547D2 /* ChangePhone2ViewController.m in Sources */,
@@ -3435,6 +3446,7 @@
 				F0B60E911D9173D600F8F519 /* QZ_JobListApi.m in Sources */,
 				F00DE90F1D759088004D43D0 /* YTKChainRequest.m in Sources */,
 				F0E82A631D9C0DE90087FC4C /* AJPhotoGroupCell.m in Sources */,
+				5DF4F0431E6862F900ACA183 /* GetConcernJob.m in Sources */,
 				F0C30EE21D73D36E007941A1 /* SVIndefiniteAnimatedView.m in Sources */,
 				F0E82A6D1D9C0DE90087FC4C /* AJTapDetectingView.m in Sources */,
 				F02B89B41DA7A54F0020ED25 /* qrinput.c in Sources */,

@@ -27,6 +27,7 @@
     self.disPlayCollectionView.dataSource =  self;
     self.disPlayCollectionView.delegate = self;
     self.disPlayCollectionView.showsHorizontalScrollIndicator = NO;
+    self.disPlayCollectionView.pagingEnabled = YES;
     [self.disPlayCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cellID"];
    
 }
@@ -55,9 +56,22 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"hhhh");
+    
+    
 }
 
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    NSLog(@"结束滑动");
+    if(self.disPlayCollectionView.contentOffset.x > self.frame.size.width/2) {
+        self.rightLabel.backgroundColor = MainColor;
+        self.leftLabel.backgroundColor = BackgroundColor;
+    } else {
+        self.rightLabel.backgroundColor = BackgroundColor;
+        self.leftLabel.backgroundColor = MainColor;
+        
+    }
     
-
+    
+}
 
 @end

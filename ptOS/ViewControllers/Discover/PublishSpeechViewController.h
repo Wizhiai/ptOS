@@ -25,8 +25,7 @@
 //显示当前位置的label
 @property (strong, nonatomic) IBOutlet UILabel *locationLabel;
 
-//显示录音图片的按钮
-@property (strong, nonatomic) IBOutlet UIButton *playBtn;
+
 
 
 @end

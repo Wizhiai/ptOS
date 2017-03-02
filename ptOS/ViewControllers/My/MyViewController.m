@@ -21,7 +21,7 @@
 @interface MyViewController ()
 
 @property (weak, nonatomic) IBOutlet UIView *bottomView1;
-@property (weak, nonatomic) IBOutlet UIView *bottomView2;
+
 @property (weak, nonatomic) IBOutlet UIView *bottomView3;
 
 @property (weak, nonatomic) IBOutlet UIImageView *headerImageView;
@@ -95,7 +95,7 @@
 //设置圆角
 - (void)initRadios {
     ZRViewRadius(self.bottomView1, 10);
-    ZRViewRadius(self.bottomView2, 10);
+   
     ZRViewRadius(self.bottomView3, 10);
     ZRViewRadius(self.headerImageView, 45);
     self.headerImageView.clipsToBounds = YES;
@@ -151,7 +151,7 @@
 //点击关注
 - (IBAction)attention:(id)sender {
     NSLog(@"关注按钮呗点击");
-    MyFavoriteViewController *favoriteViewController = [[MyFavoriteViewController alloc]init];
+    MyFavoriteViewController *favoriteViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"MyFavoriteViewController"];
     [self.navigationController pushViewController:favoriteViewController animated:YES];
 }
 

@@ -122,14 +122,14 @@
         self.navView.groundBtn2.hidden = NO;
         self.right_tbView.hidden = YES;
         
-        [self addPlaceholder];
+//        [self addPlaceholder];
     }else {
         self.navView.companyBtn.hidden = NO;
         self.navView.groundBtn2.hidden = YES;
         self.navView.groundBtn.hidden = NO;
-//        [self comListApiNet];
+        [self comListApiNet];
         
-        [self removePlaceholder];
+//        [self removePlaceholder];
     }
 }
 
@@ -537,7 +537,7 @@
         }
         CGFloat height = [ControlUtil heightWithContent:model.content withFont:[UIFont systemFontOfSize:15] withWidth:FITWIDTH(326)];
         if (model.imgUrl.length < 6) {
-            //无图
+            
           
             if (height > 60) {
                 return 181;
@@ -545,8 +545,8 @@
                 return 181 - 60 + height;
             }
         }else if([model.fileType isEqualToString:@"2"]){
-            //有图
-             return 161 ;
+           
+             return 154 ;
         } else {
             return 181;
         }

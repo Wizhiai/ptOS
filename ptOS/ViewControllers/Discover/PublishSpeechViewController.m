@@ -16,7 +16,7 @@
 #import "AJPhotoBrowserViewController.h"
 #import "OSSManager.h"
 
-@interface PublishSpeechViewController ()<AVAudioPlayerDelegate,AVAudioRecorderDelegate>
+@interface PublishSpeechViewController ()<AVAudioPlayerDelegate,AVAudioRecorderDelegate,UIGestureRecognizerDelegate>
 
 
 @property (nonatomic,strong)FX_PublishTZApi *publishApi;
@@ -33,6 +33,15 @@
 @property (nonatomic, strong)AVAudioSession * audioSession;
 
 @property (nonatomic, strong)UILongPressGestureRecognizer *longPressGesture;
+
+@property (nonatomic, strong)NSTimer *timer;
+
+@property (nonatomic, strong)UILabel *timeLabel;
+
+@property (nonatomic, strong)UIButton *deleteBtn;
+
+@property int time;
+
 @end
 
 @implementation PublishSpeechViewController
@@ -69,30 +78,125 @@
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithCustomView:btn];
     self.navigationItem.rightBarButtonItem = rightItem;
     
-    //录音按钮
+    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
+   
     
-    self.longPressGesture = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(startRecord:)];
+    self.topView.backgroundColor = MainColor;
+    
+    [self addTimeLabel];
+    self.time = 0;
+    
+    self.record.backgroundColor = MainColor;
+    
+    //录音按钮
+    self.longPressGesture = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(handleLongPress:)];
+    self.longPressGesture.delegate = self;
+    
+   
     [self.record addGestureRecognizer:self.longPressGesture];
     
-//    [self.record addTarget:self action:@selector(startRecord:) forControlEvents:UIControlEventTouchDown];
+
+
     
-    [self.record addTarget:self action:@selector(endRecord:) forControlEvents:UIControlEventTouchDragExit];
-    
-    [self.playBtn addTarget:self action:@selector(palyRecord:) forControlEvents:UIControlEventTouchUpInside];
-    
+   
     self.locationLabel.text = [GlobalData sharedInstance].location; //显示当前定位
     
 }
 
+- (void)addTimeLabel{
+    self.timeLabel = [ [UILabel alloc]initWithFrame:CGRectMake(0, 60, self.topView.frame.size.width, 40)];
+    self.timeLabel.text = @"00:00";
+    self.timeLabel.textAlignment= NSTextAlignmentCenter;
+    self.timeLabel.textColor = [UIColor whiteColor];
+    self.timeLabel.font = [UIFont fontWithName:@"Arial" size:25];
+    [self.topView addSubview: self.timeLabel];
+
+}
+
+//录音结束后添加删除按钮
+- (void)addDeleteBtn {
+    
+    self.deleteBtn = [[UIButton alloc]initWithFrame:CGRectMake(230, 50, 40, 20)];
+    
+    [self.deleteBtn setTitle:@"删除" forState:UIControlStateNormal];
+    
+    self.deleteBtn.titleLabel.font = [UIFont fontWithName:@"Arial" size:15];
+    self.deleteBtn.layer.borderWidth = 1;
+    self.deleteBtn.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.deleteBtn.layer.cornerRadius = 10;
+    [self.deleteBtn addTarget:self action:@selector(deleteRecord) forControlEvents:UIControlEventTouchUpInside];
+    [self.topView addSubview:self.deleteBtn];
+}
+
+- (void)deleteRecord {
+    //按钮移除
+    [self.deleteBtn removeFromSuperview];
+    self.timeLabel.text = @"00:00";
+}
+- (void)handleLongPress:(UILongPressGestureRecognizer *)longPressGesture{
+    if (longPressGesture.state ==  UIGestureRecognizerStateBegan) {
+        
+       
+
+        [self.record setTitle:@"松开停止" forState:UIControlStateNormal];
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(timerMove) userInfo:nil repeats:YES];
+        
+        [self startRecord];
+    }
+    
+    if (longPressGesture.state == UIGestureRecognizerStateChanged) {
+        NSLog(@"UIGestureRecognizerStateEnded");
+    }
+    
+    if (longPressGesture.state == UIGestureRecognizerStateEnded) {
+        
+        NSLog(@"UIGestureRecognizerStateEnded");
+        //长按结束后显示删除按钮
+        [self.record setTitle:@"按住说两句" forState:UIControlStateNormal];
+        [self.timer invalidate];
+        self.timer=nil;
+        self.time = 0; //计时器归0
+        [self addDeleteBtn]; //添加删除按钮
+        
+    }
+}
+
+
+- (void)timerMove{
+    self.time ++;
+    int minute = ceilf(self.time/60);
+    int second = self.time % 60;
+    NSLog(@"当前录音时间：%d",minute);
+    if(minute <1){
+        if(second<10){
+            self.timeLabel.text = [NSString stringWithFormat:@"00:0%d",second];
+        } else {
+            self.timeLabel.text = [NSString stringWithFormat:@"00:%d",second];
+        }
+    } else if (minute>1&&minute<10){
+        if(second<10){
+            self.timeLabel.text = [NSString stringWithFormat:@"0%d:0%d",minute, second];
+        } else {
+            self.timeLabel.text = [NSString stringWithFormat:@"0%d:%d",minute,second];
+        }
+    } else{
+        if(second<10){
+            self.timeLabel.text = [NSString stringWithFormat:@"%d:0%d",minute,second];
+        } else {
+            self.timeLabel.text = [NSString stringWithFormat:@"%d:%d",minute, second];
+        }
+    }
+}
+
 //录音
-- (void)startRecord:(UIButton *)sender {
+- (void)startRecord {
     
     self.audioSession = [AVAudioSession sharedInstance];
 
         _isRecoding= YES;
         [self.audioSession setCategory:AVAudioSessionCategoryRecord error:nil];
         [self.audioSession setActive:YES error:nil];
-        [self.record setTitle:@"松开停止" forState:UIControlStateNormal];
         
         NSDictionary *setting = [[NSDictionary alloc] initWithObjectsAndKeys: [NSNumber numberWithFloat: 44100.0],AVSampleRateKey, [NSNumber numberWithInt: kAudioFormatLinearPCM],AVFormatIDKey, [NSNumber numberWithInt:16],AVLinearPCMBitDepthKey, [NSNumber numberWithInt: 2], AVNumberOfChannelsKey, [NSNumber numberWithBool:NO],AVLinearPCMIsBigEndianKey, [NSNumber numberWithBool:NO],AVLinearPCMIsFloatKey,nil]; //然后直接把文件保存成.wav就好了
         _tmpFile = [NSURL fileURLWithPath:
@@ -144,6 +248,8 @@
     {
         [self presentLoginCtrl];
         return;
+    } else{
+        
     }
     
     

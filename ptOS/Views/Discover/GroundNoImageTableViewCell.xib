@@ -103,7 +103,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WM0-yk-8N1">
-                                <rect key="frame" x="240" y="128" width="111" height="12"/>
+                                <rect key="frame" x="240" y="128" width="99" height="12"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="12" id="WXh-fW-Av5"/>
                                 </constraints>
@@ -164,6 +164,7 @@
                             <constraint firstAttribute="trailing" secondItem="9bg-ex-6e6" secondAttribute="trailing" constant="7" id="RbE-db-GFy"/>
                             <constraint firstItem="Uik-uy-iml" firstAttribute="top" secondItem="oDY-aR-eTL" secondAttribute="bottom" constant="34" id="WBh-Tw-lg5"/>
                             <constraint firstAttribute="bottom" secondItem="4BT-LG-jdd" secondAttribute="bottom" constant="8.5" id="XGR-cb-wpW"/>
+                            <constraint firstAttribute="trailing" secondItem="WM0-yk-8N1" secondAttribute="trailing" constant="12" id="XHt-n0-roK"/>
                             <constraint firstAttribute="bottom" secondItem="WM0-yk-8N1" secondAttribute="bottom" constant="13.5" id="YtD-js-yNk"/>
                             <constraint firstItem="j5q-Tu-dqH" firstAttribute="leading" secondItem="QY1-bf-7dJ" secondAttribute="leading" constant="12" id="ZPk-mP-u83"/>
                             <constraint firstAttribute="trailing" secondItem="oDY-aR-eTL" secondAttribute="trailing" constant="13" id="aPy-Nr-NNn"/>
@@ -176,7 +177,6 @@
                             <constraint firstItem="EJX-BP-0oe" firstAttribute="top" secondItem="QY1-bf-7dJ" secondAttribute="top" constant="94" id="npd-E9-G2z"/>
                             <constraint firstItem="1ts-b3-Wnf" firstAttribute="leading" secondItem="uCf-le-egt" secondAttribute="trailing" constant="1" id="rm5-l4-WoM"/>
                             <constraint firstItem="EJX-BP-0oe" firstAttribute="leading" secondItem="2BA-bV-eAs" secondAttribute="trailing" constant="5" id="urv-Z3-Kh6"/>
-                            <constraint firstAttribute="trailing" secondItem="WM0-yk-8N1" secondAttribute="trailing" id="wji-Pd-VjZ"/>
                             <constraint firstAttribute="trailing" secondItem="KTN-gw-f5f" secondAttribute="trailing" constant="6" id="wkD-Mt-Dy2"/>
                             <constraint firstItem="2BA-bV-eAs" firstAttribute="leading" secondItem="jI1-oK-NYR" secondAttribute="trailing" constant="10" id="xFw-OG-Gcm"/>
                         </constraints>

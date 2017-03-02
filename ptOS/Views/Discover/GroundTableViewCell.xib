@@ -96,7 +96,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Q9-Gn-Avw">
-                                <rect key="frame" x="241" y="137" width="110" height="12"/>
+                                <rect key="frame" x="241" y="137" width="98" height="12"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="12" id="P2A-ht-hEU"/>
                                 </constraints>
@@ -160,13 +160,13 @@
                             <constraint firstAttribute="bottom" secondItem="xUz-7H-Md6" secondAttribute="bottom" constant="14.5" id="5st-1y-V2u"/>
                             <constraint firstItem="rlX-tY-8YF" firstAttribute="leading" secondItem="XyR-B7-Qjz" secondAttribute="trailing" constant="5" id="91U-RC-BpJ"/>
                             <constraint firstItem="XyR-B7-Qjz" firstAttribute="leading" secondItem="r5z-jW-vUv" secondAttribute="trailing" constant="11" id="AQv-pQ-UW3"/>
+                            <constraint firstAttribute="trailing" secondItem="4Q9-Gn-Avw" secondAttribute="trailing" constant="12" id="DD0-eo-5YQ"/>
                             <constraint firstItem="Cde-xv-Kd9" firstAttribute="leading" secondItem="1V0-qb-0D9" secondAttribute="leading" constant="12" id="EyT-CS-RNP"/>
                             <constraint firstItem="r5z-jW-vUv" firstAttribute="leading" secondItem="1V0-qb-0D9" secondAttribute="leading" constant="11" id="FB8-06-Nvm"/>
                             <constraint firstItem="zZ2-H9-thI" firstAttribute="leading" secondItem="1V0-qb-0D9" secondAttribute="leading" constant="10" id="Hgq-sz-GtD"/>
                             <constraint firstAttribute="bottom" secondItem="Cde-xv-Kd9" secondAttribute="bottom" constant="14.5" id="KCY-CO-7bf"/>
                             <constraint firstAttribute="bottom" secondItem="rlX-tY-8YF" secondAttribute="bottom" constant="52.5" id="L4J-Ne-C7M"/>
                             <constraint firstItem="5Aa-bI-z3f" firstAttribute="leading" secondItem="29u-BC-vfU" secondAttribute="trailing" constant="48" id="OBf-A2-Zus"/>
-                            <constraint firstAttribute="trailing" secondItem="4Q9-Gn-Avw" secondAttribute="trailing" id="PNA-eo-dbe"/>
                             <constraint firstItem="Cde-xv-Kd9" firstAttribute="top" secondItem="r5z-jW-vUv" secondAttribute="bottom" constant="8" id="PvB-Sy-YOp"/>
                             <constraint firstItem="xUz-7H-Md6" firstAttribute="leading" secondItem="oBD-fv-bGE" secondAttribute="trailing" constant="19" id="RGp-us-yhI"/>
                             <constraint firstAttribute="bottom" secondItem="oBD-fv-bGE" secondAttribute="bottom" constant="8.5" id="ScH-2G-Lsf"/>

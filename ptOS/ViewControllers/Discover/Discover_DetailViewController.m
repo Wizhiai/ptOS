@@ -133,18 +133,7 @@
     [self.dianzanBtn setImage:[UIImage imageNamed:@"icon_dianzan_white"] forState:UIControlStateNormal];
     [self.dianzanBtn setImage:[UIImage imageNamed:@"icon_dianzan_press"] forState:UIControlStateSelected];
     
-//    self.layoutTextView = [[LayoutTextView alloc] initWithFrame:CGRectMake(0, Main_Screen_Height-layoutTextHeight, Main_Screen_Width, layoutTextHeight)];
-//    self.layoutTextView.placeholder = @"我也说点什么吧";
-//    [self.view addSubview:self.layoutTextView];
-//    
-//    [self.layoutTextView setSendBlock:^(UITextView *textView) {
-//        if (textView.text.length > 140) {
-//            [XHToast showCenterWithText:@"字数过多"];
-//            return;
-//        }
-//        [weakSelf replyApiNetwithContent:textView.text];
-//        
-//    }];
+
     
     [NotificationCenter addObserver:self selector:@selector(disappear) name:UIKeyboardDidHideNotification object:nil];
 }
@@ -160,10 +149,7 @@
 }
 
 - (void)disappear {
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        self.repluId = @"";
-//        self.replyName = @"";
-//    });
+
     _isReply = NO;
 }
 
