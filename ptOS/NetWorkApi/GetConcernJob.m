@@ -38,17 +38,14 @@
     return YTKRequestMethodGet;
 }
 
-- (NSArray*)getCompanyList {
+- (NSArray*)getJobList {
     NSData *data= [[self responseString] dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
     if(dict)
     {
-        NSDictionary *dataDict = [dict objectForKey:@"data"];
-        if(dataDict && [dataDict isKindOfClass:[NSDictionary class]])
-        {
-            NSArray *array = dataDict[@"dataList"];
-            return array;
-        }
+        NSArray *array = [dict objectForKey:@"data"];
+        NSLog(@"%@",[[array objectAtIndex:0] objectForKey:@"zwName"]);
+        return array;
     }
     return nil;
 }

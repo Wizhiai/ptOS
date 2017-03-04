@@ -1271,7 +1271,7 @@
 //没有数据时添加占位的view
 
 - (void)addPlaceHolderView {
-    _nodataImgView = [[UIImageView alloc]initWithFrame:CGRectMake(30, 250, 300, FITWIDTH(200))];  //需要调整
+    _nodataImgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 250, FITWIDTH(200) * 2.2, FITWIDTH(200))];  //需要调整
     _nodataImgView.centerX = self.view.centerX;
     _nodataImgView.image = [UIImage imageNamed:@"kongbai"];
     [self.view addSubview: _nodataImgView];
@@ -1284,14 +1284,14 @@
     [_nodataImgView removeFromSuperview];
 }
 
-- (UIImageView *)nodataImgView {
-    if (_nodataImgView == nil) {
-        _nodataImgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 250, FITWIDTH(200) * 2.2, FITWIDTH(200))];
-        _nodataImgView.centerX = self.view.centerX;
-        _nodataImgView.image = [UIImage imageNamed:@"kongbai"];
-    }
-    return _nodataImgView;
-}
+//- (UIImageView *)nodataImgView {
+//    if (_nodataImgView == nil) {
+//        _nodataImgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 250, FITWIDTH(200) * 2.2, FITWIDTH(200))];
+//        _nodataImgView.centerX = self.view.centerX;
+//        _nodataImgView.image = [UIImage imageNamed:@"kongbai"];
+//    }
+//    return _nodataImgView;
+//}
 
 
 - (void)setFrame {

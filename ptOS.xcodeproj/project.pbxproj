@@ -13,6 +13,14 @@
 		5D3E707B1E5C38B3004CAD59 /* icon_yuying.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3E707A1E5C38B3004CAD59 /* icon_yuying.png */; };
 		5D3E707D1E5C38B9004CAD59 /* icon_yuying_press.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3E707C1E5C38B9004CAD59 /* icon_yuying_press.png */; };
 		5D56EF751E5AD03C009F5C9E /* PublishSpeechViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D56EF741E5AD03C009F5C9E /* PublishSpeechViewController.m */; };
+		5D7958471E6A7A63005764CF /* ConcernCompanyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7958461E6A7A63005764CF /* ConcernCompanyViewController.m */; };
+		5D79584A1E6A7A81005764CF /* ConcernJobViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7958491E6A7A81005764CF /* ConcernJobViewController.m */; };
+		5D79584E1E6A7DA2005764CF /* ConcernJobTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D79584C1E6A7DA2005764CF /* ConcernJobTableViewCell.m */; };
+		5D79584F1E6A7DA2005764CF /* ConcernJobTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D79584D1E6A7DA2005764CF /* ConcernJobTableViewCell.xib */; };
+		5D7958551E6A9316005764CF /* ConcernJobModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7958541E6A9316005764CF /* ConcernJobModel.m */; };
+		5D7958581E6A9345005764CF /* ConcernCompanyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7958571E6A9345005764CF /* ConcernCompanyModel.m */; };
+		5D7958611E6A9DCF005764CF /* ConcernCompanyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D79585F1E6A9DCF005764CF /* ConcernCompanyTableViewCell.m */; };
+		5D7958621E6A9DCF005764CF /* ConcernCompanyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D7958601E6A9DCF005764CF /* ConcernCompanyTableViewCell.xib */; };
 		5D9B1F1C1E5C87CE0062A470 /* GroupSpeechTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9B1F1A1E5C87CE0062A470 /* GroupSpeechTableViewCell.m */; };
 		5D9B1F1D1E5C87CE0062A470 /* GroupSpeechTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D9B1F1B1E5C87CE0062A470 /* GroupSpeechTableViewCell.xib */; };
 		5DA5A7CB1E5554D5000F915A /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA5A7CA1E5554D5000F915A /* UIView+Frame.m */; };
@@ -520,6 +528,20 @@
 		5D3E707C1E5C38B9004CAD59 /* icon_yuying_press.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_yuying_press.png; sourceTree = "<group>"; };
 		5D56EF731E5AD03C009F5C9E /* PublishSpeechViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishSpeechViewController.h; sourceTree = "<group>"; };
 		5D56EF741E5AD03C009F5C9E /* PublishSpeechViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishSpeechViewController.m; sourceTree = "<group>"; };
+		5D7958451E6A7A63005764CF /* ConcernCompanyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConcernCompanyViewController.h; sourceTree = "<group>"; };
+		5D7958461E6A7A63005764CF /* ConcernCompanyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConcernCompanyViewController.m; sourceTree = "<group>"; };
+		5D7958481E6A7A81005764CF /* ConcernJobViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConcernJobViewController.h; sourceTree = "<group>"; };
+		5D7958491E6A7A81005764CF /* ConcernJobViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConcernJobViewController.m; sourceTree = "<group>"; };
+		5D79584B1E6A7DA2005764CF /* ConcernJobTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConcernJobTableViewCell.h; sourceTree = "<group>"; };
+		5D79584C1E6A7DA2005764CF /* ConcernJobTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConcernJobTableViewCell.m; sourceTree = "<group>"; };
+		5D79584D1E6A7DA2005764CF /* ConcernJobTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConcernJobTableViewCell.xib; sourceTree = "<group>"; };
+		5D7958531E6A9316005764CF /* ConcernJobModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConcernJobModel.h; sourceTree = "<group>"; };
+		5D7958541E6A9316005764CF /* ConcernJobModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConcernJobModel.m; sourceTree = "<group>"; };
+		5D7958561E6A9345005764CF /* ConcernCompanyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConcernCompanyModel.h; sourceTree = "<group>"; };
+		5D7958571E6A9345005764CF /* ConcernCompanyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConcernCompanyModel.m; sourceTree = "<group>"; };
+		5D79585E1E6A9DCF005764CF /* ConcernCompanyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConcernCompanyTableViewCell.h; sourceTree = "<group>"; };
+		5D79585F1E6A9DCF005764CF /* ConcernCompanyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConcernCompanyTableViewCell.m; sourceTree = "<group>"; };
+		5D7958601E6A9DCF005764CF /* ConcernCompanyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConcernCompanyTableViewCell.xib; sourceTree = "<group>"; };
 		5D9B1F191E5C87CE0062A470 /* GroupSpeechTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupSpeechTableViewCell.h; sourceTree = "<group>"; };
 		5D9B1F1A1E5C87CE0062A470 /* GroupSpeechTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupSpeechTableViewCell.m; sourceTree = "<group>"; };
 		5D9B1F1B1E5C87CE0062A470 /* GroupSpeechTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupSpeechTableViewCell.xib; sourceTree = "<group>"; };
@@ -1434,6 +1456,10 @@
 				F00933A41D94134C006B00A9 /* FX_ComListModel.m */,
 				F0F33D3E1D9E3A0F00D276F5 /* ReplyModel.h */,
 				F0F33D3F1D9E3A0F00D276F5 /* ReplyModel.m */,
+				5D7958531E6A9316005764CF /* ConcernJobModel.h */,
+				5D7958541E6A9316005764CF /* ConcernJobModel.m */,
+				5D7958561E6A9345005764CF /* ConcernCompanyModel.h */,
+				5D7958571E6A9345005764CF /* ConcernCompanyModel.m */,
 			);
 			path = Discover;
 			sourceTree = "<group>";
@@ -1853,6 +1879,10 @@
 				F0616B861D76E6760041599B /* WorkExperienceViewController.m */,
 				F0DD36D31D9CE41B001D869C /* JuBaoViewController.h */,
 				F0DD36D41D9CE41B001D869C /* JuBaoViewController.m */,
+				5D7958451E6A7A63005764CF /* ConcernCompanyViewController.h */,
+				5D7958461E6A7A63005764CF /* ConcernCompanyViewController.m */,
+				5D7958481E6A7A81005764CF /* ConcernJobViewController.h */,
+				5D7958491E6A7A81005764CF /* ConcernJobViewController.m */,
 			);
 			name = Discover;
 			path = ../ViewControllers/Discover;
@@ -1977,6 +2007,12 @@
 				5DB2E0B31E595D2300A56507 /* ChoosePublishWay.h */,
 				5DB2E0B41E595D2300A56507 /* ChoosePublishWay.m */,
 				5DB2E0B61E595DE100A56507 /* choosePublishWay.xib */,
+				5D79584B1E6A7DA2005764CF /* ConcernJobTableViewCell.h */,
+				5D79584C1E6A7DA2005764CF /* ConcernJobTableViewCell.m */,
+				5D79584D1E6A7DA2005764CF /* ConcernJobTableViewCell.xib */,
+				5D79585E1E6A9DCF005764CF /* ConcernCompanyTableViewCell.h */,
+				5D79585F1E6A9DCF005764CF /* ConcernCompanyTableViewCell.m */,
+				5D7958601E6A9DCF005764CF /* ConcernCompanyTableViewCell.xib */,
 			);
 			path = Discover;
 			sourceTree = "<group>";
@@ -3049,6 +3085,7 @@
 				F09F3BD81D8ED05100A5CA20 /* jiazaizhong03.png in Resources */,
 				F073155F1D7C598F0057213C /* icon_nianling.png in Resources */,
 				F0E82A411D9BF16E0087FC4C /* MHSelectPickerView.xib in Resources */,
+				5D7958621E6A9DCF005764CF /* ConcernCompanyTableViewCell.xib in Resources */,
 				F07315401D7C54CE0057213C /* icon_shousuo.png in Resources */,
 				F07315271D7C03070057213C /* icon_qq.png in Resources */,
 				F07315371D7C52B10057213C /* back.png in Resources */,
@@ -3152,6 +3189,7 @@
 				F073156B1D7C5C800057213C /* icon_fanbu.png in Resources */,
 				F06ED3A71DC0B420008CA4D7 /* full@2x.png in Resources */,
 				F0E82A281D9BAD020087FC4C /* icon_weixing_press.png in Resources */,
+				5D79584F1E6A7DA2005764CF /* ConcernJobTableViewCell.xib in Resources */,
 				F0695B1D1DAD37BB003CB097 /* CommentView.xib in Resources */,
 				F002012B1D8A60F9006F0136 /* icon_dianzhan_blue.png in Resources */,
 				F0EF45801DAE5EA2006E1EB0 /* icon_tongyong1.png in Resources */,
@@ -3229,6 +3267,7 @@
 				F00933761D939AAE006B00A9 /* QZ_ComGiveJobsApi.m in Sources */,
 				F0B60ED71D9183D000F8F519 /* UIView+MJExtension.m in Sources */,
 				F009335E1D939016006B00A9 /* UIView+WebCacheOperation.m in Sources */,
+				5D79584E1E6A7DA2005764CF /* ConcernJobTableViewCell.m in Sources */,
 				F0E82A6C1D9C0DE90087FC4C /* AJPhotoZoomingScrollView.m in Sources */,
 				F00933A51D94134C006B00A9 /* FX_ComListModel.m in Sources */,
 				F002012E1D8A64F4006F0136 /* Discover_Detail_PublishView.m in Sources */,
@@ -3322,6 +3361,7 @@
 				F02AF99E1D75B229005D3F98 /* GlobalData.m in Sources */,
 				F0F945AF1D77D89D001AE058 /* FindPSW2ViewController.m in Sources */,
 				F00DE8F11D759081004D43D0 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				5D7958471E6A7A63005764CF /* ConcernCompanyViewController.m in Sources */,
 				F0695B491DAD3D90003CB097 /* IQKeyboardManager.m in Sources */,
 				F00DE8F51D759081004D43D0 /* UIProgressView+AFNetworking.m in Sources */,
 				F02B89B01DA7A54F0020ED25 /* QRCScanner.m in Sources */,
@@ -3373,6 +3413,7 @@
 				F043EB181DB4F8C700752081 /* MSTableViewCell.m in Sources */,
 				5D9B1F1C1E5C87CE0062A470 /* GroupSpeechTableViewCell.m in Sources */,
 				F0B60ED51D9183D000F8F519 /* UIScrollView+MJExtension.m in Sources */,
+				5D79584A1E6A7A81005764CF /* ConcernJobViewController.m in Sources */,
 				F0E82A621D9C0DE90087FC4C /* AJGradientView.m in Sources */,
 				F02AFB271D9540B800D9AE4B /* BindWeiXin.m in Sources */,
 				5DA5A7CE1E5554F7000F915A /* JLSliderMoveView.m in Sources */,
@@ -3381,6 +3422,7 @@
 				F0C30ED41D73D242007941A1 /* BaseView.m in Sources */,
 				F02AFB0F1D951D4100D9AE4B /* MY_FeedbackApi.m in Sources */,
 				F009335C1D939016006B00A9 /* UIImageView+HighlightedWebCache.m in Sources */,
+				5D7958581E6A9345005764CF /* ConcernCompanyModel.m in Sources */,
 				F00D4D2F1D7094690031A6C1 /* main.m in Sources */,
 				F0695B181DAD3449003CB097 /* UIView+Extension.m in Sources */,
 				F00D4D721D7099450031A6C1 /* NSDictionary+Additional.m in Sources */,
@@ -3436,6 +3478,7 @@
 				5DFDD7431E51B92B00B1F2E2 /* screenView.m in Sources */,
 				F0B2E10F1D818C6800C7A478 /* ComDetail_JobTableViewCell.m in Sources */,
 				F0E82A151D9B5F570087FC4C /* MyChangeHeaderViewController.m in Sources */,
+				5D7958551E6A9316005764CF /* ConcernJobModel.m in Sources */,
 				F0C33D331D86D5110014E8CB /* Discover_companyTableViewCell.m in Sources */,
 				F0F945D91D782C8F001AE058 /* QZ_CompanyTableViewCell.m in Sources */,
 				F00D4D8F1D709F2B0031A6C1 /* UIView+SDAutoLayout.m in Sources */,
@@ -3508,6 +3551,7 @@
 				F02AFB151D951D5E00D9AE4B /* MY_MyPublishApi.m in Sources */,
 				F0616B841D76E4D50041599B /* MyFavoriteViewController.m in Sources */,
 				F00DE90D1D759088004D43D0 /* YTKBatchRequest.m in Sources */,
+				5D7958611E6A9DCF005764CF /* ConcernCompanyTableViewCell.m in Sources */,
 				F00DE8E81D759081004D43D0 /* AFHTTPRequestOperationManager.m in Sources */,
 				F00DE8EE1D759081004D43D0 /* AFURLResponseSerialization.m in Sources */,
 				F0F945C61D782856001AE058 /* PT_FaceExamFeedBackViewController.m in Sources */,

@@ -11,7 +11,7 @@
 @implementation QZ_SearchNavView
 
 - (void)awakeFromNib {
-    
+    [super awakeFromNib];
     ZRViewRadius(self.searchField, 5);
     self.searchField.tintColor = WhiteColor;
     
@@ -21,7 +21,7 @@
     [self.companyBtn setTitleColor:WhiteColor forState:UIControlStateSelected];
     [self.companyBtn setTitleColor:RGB(193, 211, 249) forState:UIControlStateNormal];
     
-//    self.searchField
+
 }
 
 @end

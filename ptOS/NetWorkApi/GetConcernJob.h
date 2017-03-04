@@ -12,6 +12,6 @@
 
 - (id)initWithSessionId:(NSString *)sessionId andWithPage:(NSString *)page;
 
-- (NSArray *)getCompanyList;
+- (NSArray *)getJobList;
 
 @end
