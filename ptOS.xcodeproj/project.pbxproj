@@ -13,6 +13,8 @@
 		5D3E707B1E5C38B3004CAD59 /* icon_yuying.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3E707A1E5C38B3004CAD59 /* icon_yuying.png */; };
 		5D3E707D1E5C38B9004CAD59 /* icon_yuying_press.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3E707C1E5C38B9004CAD59 /* icon_yuying_press.png */; };
 		5D56EF751E5AD03C009F5C9E /* PublishSpeechViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D56EF741E5AD03C009F5C9E /* PublishSpeechViewController.m */; };
+		5D74A8551E6BBDCC00D437DE /* DisplayCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D74A8531E6BBDCC00D437DE /* DisplayCollectionViewCell.m */; };
+		5D74A8561E6BBDCC00D437DE /* DisplayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D74A8541E6BBDCC00D437DE /* DisplayCollectionViewCell.xib */; };
 		5D7958471E6A7A63005764CF /* ConcernCompanyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7958461E6A7A63005764CF /* ConcernCompanyViewController.m */; };
 		5D79584A1E6A7A81005764CF /* ConcernJobViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7958491E6A7A81005764CF /* ConcernJobViewController.m */; };
 		5D79584E1E6A7DA2005764CF /* ConcernJobTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D79584C1E6A7DA2005764CF /* ConcernJobTableViewCell.m */; };
@@ -528,6 +530,9 @@
 		5D3E707C1E5C38B9004CAD59 /* icon_yuying_press.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_yuying_press.png; sourceTree = "<group>"; };
 		5D56EF731E5AD03C009F5C9E /* PublishSpeechViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishSpeechViewController.h; sourceTree = "<group>"; };
 		5D56EF741E5AD03C009F5C9E /* PublishSpeechViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishSpeechViewController.m; sourceTree = "<group>"; };
+		5D74A8521E6BBDCC00D437DE /* DisplayCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayCollectionViewCell.h; sourceTree = "<group>"; };
+		5D74A8531E6BBDCC00D437DE /* DisplayCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayCollectionViewCell.m; sourceTree = "<group>"; };
+		5D74A8541E6BBDCC00D437DE /* DisplayCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DisplayCollectionViewCell.xib; sourceTree = "<group>"; };
 		5D7958451E6A7A63005764CF /* ConcernCompanyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConcernCompanyViewController.h; sourceTree = "<group>"; };
 		5D7958461E6A7A63005764CF /* ConcernCompanyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConcernCompanyViewController.m; sourceTree = "<group>"; };
 		5D7958481E6A7A81005764CF /* ConcernJobViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConcernJobViewController.h; sourceTree = "<group>"; };
@@ -2013,6 +2018,9 @@
 				5D79585E1E6A9DCF005764CF /* ConcernCompanyTableViewCell.h */,
 				5D79585F1E6A9DCF005764CF /* ConcernCompanyTableViewCell.m */,
 				5D7958601E6A9DCF005764CF /* ConcernCompanyTableViewCell.xib */,
+				5D74A8521E6BBDCC00D437DE /* DisplayCollectionViewCell.h */,
+				5D74A8531E6BBDCC00D437DE /* DisplayCollectionViewCell.m */,
+				5D74A8541E6BBDCC00D437DE /* DisplayCollectionViewCell.xib */,
 			);
 			path = Discover;
 			sourceTree = "<group>";
@@ -3085,6 +3093,7 @@
 				F09F3BD81D8ED05100A5CA20 /* jiazaizhong03.png in Resources */,
 				F073155F1D7C598F0057213C /* icon_nianling.png in Resources */,
 				F0E82A411D9BF16E0087FC4C /* MHSelectPickerView.xib in Resources */,
+				5D74A8561E6BBDCC00D437DE /* DisplayCollectionViewCell.xib in Resources */,
 				5D7958621E6A9DCF005764CF /* ConcernCompanyTableViewCell.xib in Resources */,
 				F07315401D7C54CE0057213C /* icon_shousuo.png in Resources */,
 				F07315271D7C03070057213C /* icon_qq.png in Resources */,
@@ -3517,6 +3526,7 @@
 				F00201211D8A5BE5006F0136 /* Discover_DetailViewController.m in Sources */,
 				F09F3BEC1D8ED6E600A5CA20 /* LaunchView.m in Sources */,
 				5DA5A7D11E555549000F915A /* JLSliderView.m in Sources */,
+				5D74A8551E6BBDCC00D437DE /* DisplayCollectionViewCell.m in Sources */,
 				F00933511D939016006B00A9 /* SDImageCache.m in Sources */,
 				F0616B871D76E6760041599B /* WorkExperienceViewController.m in Sources */,
 				F0C8C0D31D9299680065D945 /* QZ_JobDetailApi.m in Sources */,

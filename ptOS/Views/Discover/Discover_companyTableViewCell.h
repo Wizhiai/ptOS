@@ -17,4 +17,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *leftLabel;
 @property (strong, nonatomic) IBOutlet UILabel *rightLabel;
 
+@property (strong, nonatomic)NSArray *itemArray;
+
 @end

@@ -18,6 +18,8 @@
 
 #import "ConcernJobModel.h"
 
+#import "JobsDetailViewController.h"
+
 @interface ConcernJobViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     NSInteger _page;
@@ -96,6 +98,14 @@
     
     return cell;
     
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary *dic = [self.dataArr objectAtIndex:indexPath.row];
+    ConcernJobModel *model = [[ConcernJobModel alloc]initWithDic:dic];
+    JobsDetailViewController *detailViewController = [[JobsDetailViewController alloc]init];
+    detailViewController.zwId = model.jobId;
+    [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
 

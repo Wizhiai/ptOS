@@ -8,7 +8,7 @@
 
 #import "Discover_companyTableViewCell.h"
 
-
+#import "DisplayCollectionViewCell.h"
 
 @implementation Discover_companyTableViewCell
 
@@ -22,13 +22,14 @@
     
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     
+    self.itemArray = [NSArray arrayWithObjects:@"新闻资讯",@"薪资政策",@"通知公告",@"工资查询",@"工友集",@"意见征集",nil];
     
     [self.disPlayCollectionView setCollectionViewLayout:layout];
     self.disPlayCollectionView.dataSource =  self;
     self.disPlayCollectionView.delegate = self;
     self.disPlayCollectionView.showsHorizontalScrollIndicator = NO;
     self.disPlayCollectionView.pagingEnabled = YES;
-    [self.disPlayCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cellID"];
+    [self.disPlayCollectionView registerClass:[DisplayCollectionViewCell class] forCellWithReuseIdentifier:@"cellID"];
    
 }
 
@@ -42,20 +43,20 @@
 }
 //返回每个分区的item个数
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 8;
+    return 6;
 }
 //返回每个item
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    UICollectionViewCell * cell  = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellID" forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor colorWithRed:arc4random()%255/255.0 green:arc4random()%255/255.0 blue:arc4random()%255/255.0 alpha:1];
-    if(indexPath.row>5){
-        cell.backgroundColor  = [UIColor whiteColor];
-    }
+    DisplayCollectionViewCell * cell  = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellID" forIndexPath:indexPath];
+    
+    cell.itemLabel.text = [self.itemArray objectAtIndex:indexPath.row];
+    cell.headerImage.image = [UIImage imageNamed:@""];
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"hhhh");
+    NSLog(@"%ld",indexPath.row);
+//    NSLog(@"当前点击的是第％ld个");
     
     
 }

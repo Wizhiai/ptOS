@@ -18,6 +18,8 @@
 
 #import "ConcernCompanyModel.h"
 
+#import "CompanyDetailViewController.h"
+
 @interface ConcernCompanyViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     NSInteger _page;
@@ -86,6 +88,15 @@
     return cell;
 
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary *dic = [self.dataArr objectAtIndex:indexPath.row];
+    ConcernCompanyModel *model = [[ConcernCompanyModel alloc]initWithDic:dic];
+    CompanyDetailViewController *detailViewController = [[CompanyDetailViewController alloc]init];
+    detailViewController.companyId = model.companyId;
+    [self.navigationController pushViewController:detailViewController animated:YES];
+}
+
 
 
 - (void)didReceiveMemoryWarning {
